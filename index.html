@@ -57,18 +57,18 @@
     ];
 
     const READING_BOOKS = [
-      { title: "The Mom Test", author: "Rob Fitzpatrick", pages: 120, color: "#f59e0b", goal: "Run 3 customer discovery calls using the framework" },
-      { title: "$100M Offers", author: "Alex Hormozi", pages: 224, color: "#ef4444", goal: "Rewrite your business offer using the value equation" },
-      { title: "Zero to One", author: "Peter Thiel", pages: 195, color: "#3b82f6", goal: "Answer: what do I believe that nobody else does?" },
-      { title: "Almanack of Naval Ravikant", author: "Eric Jorgenson", pages: 242, color: "#10b981", goal: "Identify your 3 highest-leverage activities" },
-      { title: "Deep Work", author: "Cal Newport", pages: 296, color: "#8b5cf6", goal: "Implement a 2hr deep work block daily" },
-      { title: "The Lean Startup", author: "Eric Ries", pages: 336, color: "#f97316", goal: "Build a build-measure-learn loop for your business" },
+      { title: "Influence", author: "Robert Cialdini", pages: 480, color: "#f59e0b", goal: "Run 3 customer discovery calls using the framework" },
+      { title: "The Tiger", author: "John Vaillant", pages: 330, color: "#ef4444", goal: "Rewrite your business offer using the value equation" },
+      { title: "Never Split the Difference", author: "Chris Voss", pages: 210, color: "#3b82f6", goal: "Answer: what do I believe that nobody else does?" },
+      { title: "From Whom the Bell Tolls", author: "Ernest Hemingway", pages: 480, color: "#10b981", goal: "Identify your 3 highest-leverage activities" },
+      { title: "The Power Law", author: "Sebastian Malaby", pages: 430, color: "#8b5cf6", goal: "Implement a 2hr deep work block daily" },
+      { title: "Animal Farm", author: "George Orwell", pages: 120, color: "#f97316", goal: "Build a build-measure-learn loop for your business" },
     ];
 
     const GOALS = [
       {
         id: "business", title: "Start a Business", xp: 2500, color: "#f59e0b",
-        target: "£1,000 MRR by July 1st 2026",
+        target: "$1,000 Monthly Revenue by July 1st 2026",
         identity: "I am a founder.",
         antiGoal: "Never build features without 3+ customers asking first.",
         weeklyInputs: ["5 outbound messages to potential customers", "1 customer discovery call", "2hr minimum building", "1 pricing conversation"],
@@ -76,9 +76,9 @@
           { label: "Write a 1-page 'problem memo' — what exactly are you solving and for who?", done: false, metric: "1 doc shared with 5 people for feedback" },
           { label: "Have 20 customer discovery conversations. No selling. Only listening.", done: false, metric: "20 calls logged with key quotes" },
           { label: "Launch a landing page and get 10 emails from strangers", done: false, metric: "10 signups from cold traffic" },
-          { label: "Get your first £1 of revenue. Most people never do this.", done: false, metric: "First transaction completed" },
-          { label: "Hit £500 MRR — proof the model repeats, not just luck", done: false, metric: "£500/month for 2 consecutive months" },
-          { label: "Hit £1,000 MRR — the psychological threshold that changes everything", done: false, metric: "£1,000/month for 2 consecutive months" },
+          { label: "Get your first $1 of revenue. Most people never do this.", done: false, metric: "First transaction completed" },
+          { label: "Hit $500 MRR — proof the model repeats, not just luck", done: false, metric: "$500/month for 2 consecutive months" },
+          { label: "Hit $1,000 MRR — the psychological threshold that changes everything", done: false, metric: "$1,000/month for 2 consecutive months" },
         ],
         strategy: "Find a 'hair on fire' problem in a boring niche. These people have budget and pain. Pick ONE idea and go all-in for 90 days before evaluating. AI is your unfair advantage: build in 2 days what takes an agency 2 months.",
       },
@@ -148,17 +148,17 @@
       },
       {
         id: "reading", title: "Read High-Leverage Books", xp: 1200, color: "#f97316",
-        target: "24 books read + 1 implemented idea per book",
+        target: "36 books read + 1 implemented idea per book",
         identity: "I am someone whose reading compounds into an unfair advantage.",
         antiGoal: "Never finish a book without writing 1 action you'll take this week because of it.",
-        weeklyInputs: ["30 min reading minimum daily", "1 swipe file idea added", "1 idea from last week's reading implemented"],
+        weeklyInputs: ["40 min reading minimum daily", "1 swipe file idea added", "1 idea from last week's reading implemented"],
         milestones: [
-          { label: "Complete The Mom Test + run 3 customer convos with the framework", done: false, metric: "Book done + 3 convos logged" },
+          { label: "Complete Influence", done: false, metric: "Book done + 3 convos logged" },
           { label: "Complete $100M Offers + rewrite your offer using the framework", done: false, metric: "Book done + new offer written" },
           { label: "Complete Zero to One + articulate your contrarian belief", done: false, metric: "Book done + belief written down" },
           { label: "Complete Almanack of Naval + identify 3 highest-leverage activities", done: false, metric: "Book done + 3 activities identified and scheduled" },
           { label: "Complete Deep Work + implement daily 2hr deep work block", done: false, metric: "Book done + 2hr block in calendar for 30 days" },
-          { label: "Hit 24 books — 2/month average — with implementation notes", done: false, metric: "24 books + 'book OS' doc of implemented ideas" },
+          { label: "Hit 36 books — 3/month average — with implementation notes", done: false, metric: "36 books + 'book OS' doc of implemented ideas" },
         ],
         strategy: "Read for mental model density, not page count. One book with a model you apply beats ten books you forget. After each book: 'What's the single highest-leverage thing I can do THIS WEEK based on this?'",
       },
@@ -463,7 +463,7 @@
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "28px" }}>
                   <div>
                     <div style={{ fontSize: "20px", fontWeight: "600", color: "#f0f0f0", letterSpacing: "-0.03em", marginBottom: "5px" }}>Reading Tracker</div>
-                    <div style={{ fontSize: "12px", color: "#333" }}>{readPages.toLocaleString()} of {totalPages.toLocaleString()} pages · target 2 books/month</div>
+                    <div style={{ fontSize: "12px", color: "#333" }}>{readPages.toLocaleString()} of {totalPages.toLocaleString()} pages · target 3 books/month</div>
                   </div>
                   <div style={{ textAlign: "right" }}>
                     <div style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: "26px", fontWeight: "600", color: "#f97316", lineHeight: 1 }}>{readingXP}</div>
@@ -519,7 +519,7 @@
                 <div style={{ background: "#0d0d0d", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "12px", padding: "26px" }}>
                   <div style={{ fontSize: "11px", color: "#333", textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: "500", marginBottom: "20px" }}>Reading Discipline</div>
                   <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "10px", marginBottom: "22px" }}>
-                    {[{ label: "Daily minimum", value: "30 pages" }, { label: "Weekly target", value: "210 pages" }, { label: "Monthly books", value: "2 books" }, { label: "Annual target", value: "24 books" }].map((item, i) => (
+                    {[{ label: "Daily minimum", value: "40 pages" }, { label: "Weekly target", value: "280 pages" }, { label: "Monthly books", value: "3 books" }, { label: "Annual target", value: "36 books" }].map((item, i) => (
                       <div key={i} style={{ padding: "14px", background: "#111", borderRadius: "8px" }}>
                         <div style={{ fontSize: "10px", color: "#2a2a2a", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "5px" }}>{item.label}</div>
                         <div style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: "15px", fontWeight: "500", color: "#f97316" }}>{item.value}</div>
@@ -613,7 +613,7 @@
                     ))}
                   </div>
                 )}
-                <div style={{ fontSize: "11px", color: "#1e1e1e" }}>Built with Claude Code</div>
+                <div style={{ fontSize: "11px", color: "#1e1e1e" }}></div>
               </div>
             </footer>
 
