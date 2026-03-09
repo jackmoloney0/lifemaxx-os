@@ -228,20 +228,55 @@
       );
     }
 
+    function loadLS(key, fallback) {
+      try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; } catch { return fallback; }
+    }
+    function saveLS(key, value) {
+      try { localStorage.setItem(key, JSON.stringify(value)); } catch {}
+    }
+
     function LifeMax() {
-      const [goals, setGoals] = useState(GOALS);
+      const [goals, setGoals] = useState(() => {
+        const saved = loadLS("lmos_milestones", null);
+        if (!saved) return GOALS;
+        return GOALS.map(g => ({
+          ...g,
+          milestones: g.milestones.map((m, i) => ({
+            ...m,
+            done: saved[g.id]?.[i] ?? m.done,
+          })),
+        }));
+      });
       const [activeGoal, setActiveGoal] = useState(null);
       const [activeTab, setActiveTab] = useState("goals");
       const [quote, setQuote] = useState(FALLBACK_QUOTES[new Date().getDay() % FALLBACK_QUOTES.length]);
       const [quoteLoading, setQuoteLoading] = useState(false);
       const [xpPopup, setXpPopup] = useState(null);
       const [streak, setStreak] = useState(0);
-      const [readingBooks, setReadingBooks] = useState(
-        READING_BOOKS.map(b => ({ ...b, pagesRead: 0 }))
-      );
-      const [achievements, setAchievements] = useState([]);
+      const [readingBooks, setReadingBooks] = useState(() => {
+        const saved = loadLS("lmos_reading", null);
+        return READING_BOOKS.map((b, i) => ({ ...b, pagesRead: saved?.[i] ?? 0 }));
+      });
+      const [achievements, setAchievements] = useState(() => loadLS("lmos_achievements", []));
       const [newAchievement, setNewAchievement] = useState(null);
       const countdown = useCountdown();
+
+      // Persist goals milestones
+      useEffect(() => {
+        const data = {};
+        goals.forEach(g => { data[g.id] = g.milestones.map(m => m.done); });
+        saveLS("lmos_milestones", data);
+      }, [goals]);
+
+      // Persist reading progress
+      useEffect(() => {
+        saveLS("lmos_reading", readingBooks.map(b => b.pagesRead));
+      }, [readingBooks]);
+
+      // Persist achievements
+      useEffect(() => {
+        saveLS("lmos_achievements", achievements);
+      }, [achievements]);
 
       useEffect(() => {
         const today = new Date().toDateString();
@@ -622,8 +657,86 @@
       );
     }
 
+    const PASSWORD = "iloveai69";
+
+    function LoginScreen({ onAuth }) {
+      const [input, setInput] = useState("");
+      const [error, setError] = useState(false);
+      const [shake, setShake] = useState(false);
+
+      const attempt = () => {
+        if (input === PASSWORD) {
+          sessionStorage.setItem("lmos_auth", "1");
+          onAuth();
+        } else {
+          setError(true);
+          setShake(true);
+          setTimeout(() => setShake(false), 500);
+          setInput("");
+        }
+      };
+
+      return (
+        <div style={{ minHeight: "100vh", background: "#080808", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Inter', -apple-system, sans-serif" }}>
+          <style>{`
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+            @keyframes shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-8px)} 40%{transform:translateX(8px)} 60%{transform:translateX(-5px)} 80%{transform:translateX(5px)} }
+            .shake { animation: shake 0.45s ease; }
+          `}</style>
+          <div style={{ textAlign: "center" }}>
+            <div style={{ fontSize: "11px", color: "#333", letterSpacing: "0.14em", textTransform: "uppercase", fontWeight: "500", marginBottom: "32px" }}>Life OS · Jack Moloney</div>
+            <div className={shake ? "shake" : ""} style={{ display: "flex", flexDirection: "column", gap: "12px", alignItems: "center" }}>
+              <input
+                type="password"
+                value={input}
+                onChange={e => { setInput(e.target.value); setError(false); }}
+                onKeyDown={e => e.key === "Enter" && attempt()}
+                placeholder="password"
+                autoFocus
+                style={{
+                  background: error ? "rgba(239,68,68,0.06)" : "#0d0d0d",
+                  border: `1px solid ${error ? "rgba(239,68,68,0.4)" : "rgba(255,255,255,0.08)"}`,
+                  borderRadius: "8px",
+                  padding: "12px 18px",
+                  color: "#e0e0e0",
+                  fontSize: "14px",
+                  width: "220px",
+                  outline: "none",
+                  textAlign: "center",
+                  letterSpacing: "0.1em",
+                  transition: "border 0.2s",
+                }}
+              />
+              <button
+                onClick={attempt}
+                style={{
+                  background: "none",
+                  border: "1px solid rgba(99,102,241,0.35)",
+                  borderRadius: "8px",
+                  color: "#6366f1",
+                  fontSize: "12px",
+                  fontWeight: "500",
+                  padding: "9px 28px",
+                  letterSpacing: "0.06em",
+                  cursor: "pointer",
+                  transition: "opacity 0.15s",
+                }}
+              >Enter</button>
+              {error && <div style={{ fontSize: "11px", color: "rgba(239,68,68,0.7)", letterSpacing: "0.05em" }}>incorrect password</div>}
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    function App() {
+      const [authed, setAuthed] = useState(!!sessionStorage.getItem("lmos_auth"));
+      if (!authed) return <LoginScreen onAuth={() => setAuthed(true)} />;
+      return <LifeMax />;
+    }
+
     const root = ReactDOM.createRoot(document.getElementById("root"));
-    root.render(<LifeMax />);
+    root.render(<App />);
   </script>
 </body>
 </html>
