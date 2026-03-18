@@ -31,7 +31,9 @@
     const QUOTE_FIGURES = [
       "Steve Jobs", "Naval Ravikant", "Roger Federer", "Elon Musk",
       "Alex Hormozi", "Chris Williamson", "George Mack", "Paul Graham",
-      "Charlie Munger", "Kobe Bryant", "Andrew Huberman", "Sam Altman"
+      "Charlie Munger", "Kobe Bryant", "Andrew Huberman", "Sam Altman",
+      "Reid Hoffman", "Jerzy Gregorek", "James Clear", "Ray Dalio",
+      "Jocko Willink", "Epictetus", "Confucius", "Gary Vaynerchuk", "Tim Ferriss"
     ];
 
     const FALLBACK_QUOTES = [
@@ -45,6 +47,16 @@
       { text: "Spend each day trying to be a little wiser than you were when you woke up.", author: "Charlie Munger" },
       { text: "The most important thing is to try and inspire people so that they can be great in whatever they want to do.", author: "Kobe Bryant" },
       { text: "The key to overcoming fear is taking action.", author: "Alex Hormozi" },
+      { text: "If you're not embarrassed by the first version of your product, you've launched too late.", author: "Reid Hoffman" },
+      { text: "Hard choices, easy life. Easy choices, hard life.", author: "Jerzy Gregorek" },
+      { text: "You don't rise to the level of your goals. You fall to the level of your systems.", author: "James Clear" },
+      { text: "The best time to plant a tree was 20 years ago. The second best time is now.", author: "Chinese Proverb" },
+      { text: "If you want to be great at something, be willing to be bad at it first.", author: "Ray Dalio" },
+      { text: "Discipline equals freedom.", author: "Jocko Willink" },
+      { text: "You become what you give your attention to.", author: "Epictetus" },
+      { text: "The man who moves a mountain begins by carrying away small stones.", author: "Confucius" },
+      { text: "Stop asking for permission. Start asking for forgiveness.", author: "Gary Vaynerchuk" },
+      { text: "Your network is your net worth.", author: "Tim Ferriss" },
     ];
 
     const IDENTITY = [
@@ -429,6 +441,439 @@
       },
     ];
 
+    const COMPLETED_BOOKS = [
+      {
+        id: "tfas", title: "Thinking, Fast and Slow", author: "Daniel Kahneman", color: "#6366f1", rating: 9,
+        mainMessage: "An overhaul of all thinking systems we automatically rely on. Proposes methods to prevent intuitive guessing and biases and encourages more thoughtful methodical thinking.",
+        keyIdeas: [
+          "System 1 vs. System 2 — automatic vs. deliberate thinking",
+          "Availability Heuristic — judging probability by ease of recall",
+          "Anchoring — relying heavily on initial reference points. 'High balling an offer'",
+          "Base Rate Neglect — ignoring statistical prevalence as if it doesn't apply to you",
+          "Planning Fallacy — consistent underestimating of time and cost",
+          "Outcome Bias — judging decisions by outcomes rather than decision quality",
+          "Framing Effect — decisions change with wording, not substance",
+          "Endowment Effect — overvaluing what we own",
+          "Loss Aversion — losses feel twice as painful as equivalent gains feel good",
+          "WYSIATI — confidence driven by narrative coherence not evidence quality",
+          "Sunk-Cost Fallacy — willingness to continue suffering a loss",
+          "Peak-End Rule — only peak pleasure/pain and the end experience are remembered",
+          "Regression to the Mean — performance must be viewed distributively",
+        ],
+        behaviorChange: "Anchoring, loss aversion and the framing effect.",
+        actions: [
+          "Insert a pause before important decisions to force System 2 engagement",
+          "Ask 'What's missing?' explicitly to counter WYSIATI",
+          "Pre-mortem analysis — assume failure and list reasons before committing",
+        ],
+        quotes: [
+          "Nothing in life is as important as you think it is while you are thinking about it.",
+          "Confidence is a feeling, not a fact.",
+          "Losses loom larger than gains.",
+        ],
+        verdict: "Dense but invaluable. Moving 20 pages felt like a season. The mental models proposed will always be used. A book I will always come back to.",
+      },
+      {
+        id: "z2o", title: "Zero to One", author: "Peter Thiel", color: "#f59e0b", rating: 8,
+        mainMessage: "True progress comes from creating something fundamentally new — 10x better than the closest competitor. Build future monopolies, not competitive markets.",
+        keyIdeas: [
+          "Zero to One — true progress is creating something fundamentally new",
+          "Secrets — valuable companies are built on truths most people don't believe yet",
+          "Last-Mover Advantage — long-term value accrues to companies that endure, not just move first",
+          "Competition is for Losers — monopolies are where real wealth is built",
+          "Embrace Contrarian Beliefs — back your own opinion, don't follow the wind",
+          "Foundations are gold-dust — get them right at the start",
+          "Sales must never be under-appreciated",
+          "Framing market-share matters — 'We're the only X in Y'",
+        ],
+        behaviorChange: "Competition is for Losers. This reframed how I think about building a business.",
+        actions: [],
+        quotes: [
+          "The more we compete the less we gain.",
+          "The most contrarian thing of all is not to oppose the crowd but to think for yourself.",
+          "Secrets are truths that few people agree on.",
+          "The best businesses create something new and escape competition by becoming monopolies.",
+        ],
+        verdict: "A top-down comprehensive guide to founding a startup. Plentiful insights in a concise, non-flamboyant manor. Strong Recommend.",
+      },
+      {
+        id: "principles", title: "Principles", author: "Ray Dalio", color: "#10b981", rating: 8,
+        mainMessage: "Having a grasp on true reality — not as you wish it to be — is key. Progress is accelerated by radical truth, transparency, and a willingness to learn from mistakes.",
+        keyIdeas: [
+          "Embrace painful truths rather than deflecting from them",
+          "Know your weaknesses and design around them — don't deny them",
+          "Evolve or die",
+          "Never rely on intuition alone",
+          "Pain + Reflection = Progress",
+          "Think in systems — never neglect second and third order consequences",
+        ],
+        behaviorChange: "Post-mortem decision feedback and separating ego from learning.",
+        actions: [
+          "Post-mortem decision feedback after every major commitment",
+          "Seek disagreements and opposing viewpoints to strengthen thinking",
+          "Track mistakes and look for patterns",
+          "Separate ego from learning",
+        ],
+        quotes: [
+          "Replace your attachment to always being right with the joy of learning what's true.",
+          "The biggest barriers to good decision making are your ego and your blind-spots.",
+          "The satisfaction of success doesn't come from achieving your goals, but from struggling well.",
+        ],
+        verdict: "Practical, dense and actionable. Bridgewater-tested frameworks anyone building something serious can apply.",
+      },
+      {
+        id: "naval", title: "The Almanack of Naval Ravikant", author: "Eric Jorgenson", color: "#8b5cf6", rating: 9,
+        mainMessage: "A unique wisdom book on wealth, health and lifestyle. Focuses on the power of leverage, specific knowledge and long-term compounding.",
+        keyIdeas: [
+          "Earn with your mind, not your time",
+          "Apply specific knowledge with leverage and you will eventually get what you deserve",
+          "Intentions don't matter. Actions do. That's why being ethical is hard.",
+          "If they can train you to do it, they will eventually train a computer to do it",
+          "Avoid zero-sum status games",
+          "Play long-term games with long-term people",
+          "To be honest, speak without identity",
+          "Always pay it forward and don't keep count",
+        ],
+        behaviorChange: "The idea of leverage — earning while you sleep. The pursuit of specific rather than generic knowledge.",
+        actions: [
+          "Integrate daily journalling into schedule",
+          "High-judgement decision making — write out trade-offs and long-term effects for big decisions",
+          "Seek curiosity and specific knowledge will follow",
+          "Prioritize work that feels like play",
+        ],
+        quotes: [
+          "All the returns in life come from compound interest.",
+          "The most important skill for getting rich is becoming a perpetual learner.",
+          "Play long-term games with long-term people.",
+          "Inspiration is perishable, act on it immediately.",
+        ],
+        verdict: "Full of wisdom and fascinating insights. A must re-read to ground myself into the core principles of the life I want to lead.",
+      },
+      {
+        id: "outliers", title: "Outliers", author: "Malcolm Gladwell", color: "#ef4444", rating: 7,
+        mainMessage: "Success is rarely self-made. Time, location, resources and luck compound. Outliers are usually in the right place at the right time — and have the presence of mind to seize it.",
+        keyIdeas: [
+          "Small advantages compound over time into massive differences",
+          "Cultural legacy passes through generations — e.g. the Chinese work ethic from rice paddies",
+          "Opportunity is crucial — you must position for it",
+          "10,000 hours of deliberate practice for world-class mastery",
+          "Systematic infrastructure creates unfair starting points",
+        ],
+        behaviorChange: "Gratitude for the opportunities afforded to me. Deliberate practice matters more than raw talent.",
+        actions: [],
+        quotes: [
+          "No one ever makes it alone.",
+          "Ten thousand hours is the magic number of greatness.",
+          "Outliers are those given extraordinary opportunities — who have had the strength and presence of mind to seize them.",
+        ],
+        verdict: "Great, intriguing read full of fun stories. Recommend — but beware over-attributing success to luck.",
+      },
+      {
+        id: "courage", title: "The Courage to Be Disliked", author: "Ichiro Kishimi & Fumitake Koga", color: "#3b82f6", rating: 9,
+        mainMessage: "Adlerian psychology proposes the separation of tasks and rejects the idea that trauma shapes who we are. We decide the reality we inhabit. Freedom requires the courage to be disliked.",
+        keyIdeas: [
+          "Comparison is the thief of joy — all interpersonal problems stem from comparison",
+          "The past does not determine the present — meaning and goals do",
+          "Separation of tasks — yours vs. mine",
+          "Trauma does not cause behaviour, interpretation does",
+          "Seeking approval is a form of self-betrayal",
+          "Freedom requires letting go of being liked",
+          "Self-worth is not earned through usefulness or praise",
+          "Happiness is a choice, not a reward",
+          "Live in the present — life is a series of moments, not a line",
+        ],
+        behaviorChange: "Stop comparing. Accept full responsibility. Accept being disliked. Live in the present.",
+        actions: [
+          "Practice task separation — is this my task or theirs?",
+          "Notice emotional reactions and what goal they are serving",
+          "Make decisions based on values, not anticipated reactions",
+        ],
+        quotes: [
+          "Freedom is being disliked by other people.",
+          "We are not determined by our experiences, but the meaning we give them.",
+        ],
+        verdict: "Deeply spiritual, personal book that lifted me. Highly recommend.",
+      },
+      {
+        id: "hwfaip", title: "How to Win Friends and Influence People", author: "Dale Carnegie", color: "#f97316", rating: 8,
+        mainMessage: "Insights into appealing to and persuading others. Encourages readers to be less selfish and more sincere — told through compelling anecdotal stories.",
+        keyIdeas: [
+          "Don't Criticize, Condemn or Complain",
+          "Be honest and sincere in appreciation",
+          "Arouse wants in others to aid your objective",
+          "Always avoid arguments — no one truly wins",
+          "To persuade, get someone saying 'yes, yes' immediately",
+          "Personalise your idea — make them feel it's their own",
+          "Begin with praise before criticism, replace 'but' with 'and'",
+          "Always save face — what matters is what he thinks of himself",
+          "Remember everyone's favourite sound is the sound of their own name",
+        ],
+        behaviorChange: "Conflict — I used to seek arguments to satisfy my ego. Zero-sum. Now I minimise conflict and deliver criticism softly and sincerely.",
+        actions: [
+          "Sincerity — be genuine in every interaction",
+          "Appreciate and compliment more, consistently",
+          "Always save face — protect others' dignity",
+          "Be soft, gentle and humble when criticising",
+          "Remember names — it builds the foundation of connection",
+        ],
+        quotes: [
+          "The sun can make you take off your coat more quickly than the wind.",
+          "Nothing good is accomplished and a lot of damage can be done if you tell a person straight out that he is wrong.",
+        ],
+        verdict: "Before reading I was sceptical. It is a deserved classic on everyday behavioural skills to live a happy, dignified, successful life.",
+      },
+      {
+        id: "deepwork", title: "Deep Work", author: "Cal Newport", color: "#c084fc", rating: 9,
+        mainMessage: "In a distracted world, deep work is becoming more valuable yet increasingly rare. The ability to concentrate deeply determines who wins in the modern economy.",
+        keyIdeas: [
+          "Shallow work maintains visibility but rarely compounds",
+          "Attention is a skill — focus is trainable and finite",
+          "Busyness is not productivity — admin creates a façade of hard work",
+          "Depth creates leverage — complex work is hard to replicate and rewarded generously",
+          "Rituals beat willpower — structured routines make deep work sustainable",
+          "Cost of context switching — every interruption leaves cognitive residue",
+        ],
+        behaviorChange: "Newport's hard boundary around Deep Work. Every ounce of attention into the task at hand.",
+        actions: [
+          "Time-Blocking — schedule bouts of Deep Work in calendar",
+          "Define shutdown and start rituals to signal focus vs. rest to your body",
+          "Quantify output clearly — set one manageable task per deep work session",
+        ],
+        quotes: [
+          "Busyness is a proxy for productivity.",
+          "The distracted life is a diminished life.",
+          "The ability to concentrate deeply is the skill that determines who wins in a distracted economy.",
+        ],
+        verdict: "Provided the framework of my productivity setup. Simple and practical. Will stand the test of time. Recommend.",
+      },
+      {
+        id: "mdw", title: "Million Dollar Weekend", author: "Noah Kagan", color: "#fb923c", rating: 9,
+        mainMessage: "You don't need permission, perfection or a big plan to start a business. Momentum comes from fast, uncomfortable action and validating demand through real-world feedback.",
+        keyIdeas: [
+          "Action beats planning — Now, not How",
+          "Small bets, fast cycles",
+          "Constraints create leverage",
+          "Discomfort is a signal — set daily rejection goals",
+          "No ask, no get — and the follow-up ask is twice as likely to succeed",
+          "Creator's Courage — ideas mean nothing without the courage to try them",
+          "People get hooked on characters — embrace your brand",
+          "Email newsletters are underrated and powerful",
+        ],
+        behaviorChange: "Daily discomfort — one action a day that risks rejection.",
+        actions: [
+          "Apply true constraints to create leverage and results",
+          "Daily discomfort — one rejection-risk action per day",
+          "Iterate fast through direct customer feedback",
+          "Warm, hospitable responses to all customer issues",
+        ],
+        quotes: [
+          "Show me an experimenter and over the long run, I'll show you a future winner.",
+          "Do the thing you fear, and the death of fear is certain.",
+          "If you commit to nothing, you'll be distracted by everything.",
+          "Many struggle to make their first dollar because they're so focused on how to make their first million.",
+        ],
+        verdict: "Captivating. Ruthless on speed, validation and discomfort — the most common obstacles for mediocrity. Required reading for builders.",
+      },
+      {
+        id: "drive", title: "Drive", author: "Daniel Pink", color: "#34d399", rating: 5,
+        mainMessage: "Humans are intrinsically motivated by Mastery, Autonomy and Purpose — not carrots and sticks. Extrinsic rewards destroy intrinsic motivation for meaningful work.",
+        keyIdeas: [
+          "Mastery, Autonomy, Purpose — the three elements of intrinsic motivation",
+          "Goldilocks tasks — not too hard, not too easy — enable flow state",
+          "Only engagement produces mastery",
+          "Self-directed projects create higher quality and creativity",
+          "Connect daily tasks to a larger mission",
+          "Two days without flow plunged participants into a state eerily similar to psychiatric disorder",
+        ],
+        behaviorChange: "Understanding that autonomy and purpose are stronger long-term motivators than any extrinsic reward.",
+        actions: [
+          "Performance Reviews — regular self-assessment against craft",
+          "Goldilocks tasks — calibrate difficulty to stay in flow",
+          "Pursue purpose to elevate all projects",
+          "Communicate the general mission to others",
+        ],
+        quotes: [
+          "Being a professional is doing the things you love to do, on the days you don't feel like doing them.",
+          "Flow isn't a nicety — it's a necessity. It's the oxygen of the soul.",
+        ],
+        verdict: "Meh. Some decent ideas but mostly familiar territory. Useful primarily when managing others. 5/10.",
+      },
+      {
+        id: "fgp", title: "Feel Good Productivity", author: "Ali Abdaal", color: "#60a5fa", rating: 7,
+        mainMessage: "A modern approach to productivity. Making work feel good isn't a luxury — it's a performance strategy. Energy management matters more than time management.",
+        keyIdeas: [
+          "Energy management matters more than time management",
+          "Lower the bar to start — reduce friction — 5-minute rule",
+          "Play makes work easier to begin and sustain",
+          "Small actions compound more than intense infrequent action",
+          "Celebrate progress — not perfection",
+          "Action creates motivation, not the other way around",
+        ],
+        behaviorChange: "Starting before motivation — action first, then motivation follows.",
+        actions: [
+          "Lower the bar to start — remove all friction",
+          "Celebrate wins, no matter how small",
+          "Protect energy — sleep, diet and exercise come first",
+          "Reduce cognitive switching throughout the day",
+        ],
+        quotes: [
+          "Success doesn't lead to feeling good. Feeling good leads to success.",
+          "Energy is a more valuable resource than time.",
+          "Kindness to yourself is not indulgence; it's a performance strategy.",
+        ],
+        verdict: "Accessible, non-guilt-inducing productivity guide. Different angle from most productivity books. Recommend.",
+      },
+      {
+        id: "pca", title: "Poor Charlie's Almanack", author: "Charlie Munger", color: "#fbbf24", rating: 9,
+        mainMessage: "A lifetime of Berkshire wisdom. Mental models from multiple disciplines applied ruthlessly. Checklists outperform genius, and avoiding stupidity beats seeking brilliance.",
+        keyIdeas: [
+          "Build a Latticework of 100 mental models across all disciplines",
+          "Inversion — 'How could this fail spectacularly?' before committing",
+          "Circle of Competence — know what you understand and stay within it",
+          "Checklists — complex systems require procedural safeguards",
+          "Avoiding stupidity consistently beats occasional genius",
+          "Lollapalooza Effects — multiple biases compounding in one direction",
+          "Incentive-Caused Bias — incentives override ethics, logic and truth",
+          "Confirmation Bias — we seek evidence confirming existing beliefs",
+          "Compound Interest — small advantages over time dominate all outcomes",
+          "Moral Hazard — people behave worse when shielded from consequences",
+        ],
+        behaviorChange: "Checklists as a system that outperforms willpower and genius.",
+        actions: [
+          "Build a Personal Latticework — running list of core mental models across disciplines",
+          "Practice Inversion Daily — 'What would guarantee a bad outcome?'",
+          "Stay ruthlessly inside your Circle of Competence",
+          "Use Checklists for all important decisions and complex systems",
+          "Actively guard against psychological biases daily",
+        ],
+        quotes: [
+          "The big money is not in the buying or selling, but in the waiting.",
+          "Knowing what you don't know is more useful than being brilliant.",
+          "To a man with a hammer, every problem looks like a nail.",
+          "A small leak will sink a great ship.",
+        ],
+        verdict: "Lifetime wisdom distilled. The mental model framework alone is worth it. Quite heavy on the brain — nonetheless highly recommend.",
+      },
+      {
+        id: "tib", title: "Thinking in Bets", author: "Annie Duke", color: "#a78bfa", rating: 7,
+        mainMessage: "A probabilistic approach to decision making. Stop equating the quality of a decision with the quality of its outcome. Everything is a bet made under uncertainty.",
+        keyIdeas: [
+          "Never equate outcome quality with decision quality — Resulting",
+          "Blind Spot Bias — better at spotting biased reasoning in others than ourselves",
+          "View everything with a degree of uncertainty — nothing is 100%",
+          "Think like Phil Ivey — even in success, recognise where you could do better",
+          "Red Teams — designated teams to find opposing views combat confirmation bias",
+          "10-10-10 — consequences in 10 minutes, 10 days, 10 years?",
+          "Pre-determined loss limits prevent emotional decisions",
+          "Outcomes are rarely attributed to a single cause",
+        ],
+        behaviorChange: "Always be humble — prevent hubristic thoughts by reassessing strategy after both good and bad results.",
+        actions: [
+          "Incorporate all aspects of uncertainty regardless of how small",
+          "Implement Red Teams — designated devil's advocates for major decisions",
+          "Avoid 'wrong', 'but', 'certainly', '100%' — be open to contrast",
+          "Delve into decisions that led to specific outcomes always seeking improvement",
+        ],
+        quotes: [
+          "We just want to think well of ourselves. Being wrong doesn't fit that narrative.",
+          "Admitting we are not sure is an invitation for help in refining our beliefs.",
+          "Experience is not what happens to a man; it is what a man does with what happens to him.",
+          "Losing feels twice as bad as winning feels good.",
+        ],
+        verdict: "Started super-strong. Interesting and directly applicable. Slightly drops in quality toward the end. Recommend.",
+      },
+      {
+        id: "pom", title: "The Psychology of Money", author: "Morgan Housel", color: "#4ade80", rating: 8,
+        mainMessage: "Wealth is built by behaviour, patience and consistency — not intelligence. Long-term thinking, avoiding catastrophic risk and giving money time to compound determines outcomes.",
+        keyIdeas: [
+          "Focus on broad patterns, not specific individuals",
+          "Black swan events occur and can never be predicted — plan for them",
+          "No one is as impressed with your possessions as you are",
+          "Stop moving the goalposts — define enough",
+          "The most important part of every plan is planning for it not going to plan",
+          "Use money to gain control over your time — its greatest intrinsic value",
+          "History is a misleading guide for the future",
+        ],
+        behaviorChange: "Frugality as wealth accumulation. Accounting for extreme unlikeliness with plans A, B and C.",
+        actions: [
+          "Employ and explore all backup plans for events of uncertainty",
+          "Be humble when times are good, hopeful when times are bad",
+          "Study broad patterns, not individuals",
+        ],
+        quotes: [
+          "You're not a spreadsheet. You're a person. A screwed up, emotional person.",
+          "The most important part of every plan is planning on your plan not going according to plan.",
+          "Money's greatest intrinsic value is its ability to give you control over your time.",
+        ],
+        verdict: "Super introduction to personal finance. Short, sweet, practical. Strong foundation for financial literacy.",
+      },
+      {
+        id: "ah", title: "Atomic Habits", author: "James Clear", color: "#818cf8", rating: 10,
+        mainMessage: "Habits create who you are. Tiny changes make a massive difference through compound growth. The right systems — not goals — determine your outcomes.",
+        keyIdeas: [
+          "Tiny changes make a big difference through compounding",
+          "Make habits Obvious, Easy, Attractive, Satisfying and Stackable",
+          "Never miss a habit twice — show up to enforce",
+          "Habit stacking — after [current habit] I will do [new habit]",
+          "Environment is the invisible hand that shapes human behaviour",
+          "Identity-based habits — every action is a vote for who you want to become",
+          "The greatest threat to success is not failure but boredom",
+        ],
+        behaviorChange: "How easy it is to implement new habits. Tiny changes bring remarkable results.",
+        actions: [
+          "Use cues (time and location) — create environments that trigger positive habits",
+          "Habit stacking — attach new habits to existing ones",
+          "Reduce friction for good behaviours, increase friction for bad ones",
+          "Never miss a habit twice",
+          "Ritualize, Ritualize, Ritualize",
+        ],
+        quotes: [
+          "You do not rise to the level of your goals. You fall to the level of your systems.",
+          "Environment is the invisible hand that shapes human behaviour.",
+          "Every action you take is a vote for the type of person you wish to become.",
+        ],
+        verdict: "The book that enticed me into reading. So many invaluable insights, very digestible. Highly recommend.",
+      },
+      {
+        id: "ul", title: "Ultralearning", author: "Scott Young", color: "#e879f9", rating: 7,
+        mainMessage: "Ultra-learners use aggressive, deliberate strategies to quickly comprehend and use new material. Take ownership of the process and treat learning as a system to optimize.",
+        keyIdeas: [
+          "Meta-learning first — research how to study a topic before beginning (10% of study period)",
+          "Retrieval and Feedback — recall from memory and get rapid corrective feedback",
+          "Difficulty and Intensity — embrace discomfort and being out of depth",
+          "Hard practice compounds faster — set unrealistic goals",
+          "Experimentation — treat learning as a continuous system you optimize",
+        ],
+        behaviorChange: "Planning a one-page meta-learning document for any major project before starting.",
+        actions: [
+          "Meta-learning — plan approach before diving into any new project or skill",
+          "Feedback loops — identify weakest sub-skill and improve week on week",
+        ],
+        quotes: ["The biggest obstacle to learning is not intelligence, but strategy."],
+        verdict: "Accessible, quick guide to approaching self-learning. Promotes the experimenter's mindset. Recommend.",
+      },
+      {
+        id: "msm", title: "Man's Search for Meaning", author: "Viktor Frankl", color: "#f87171", rating: 10,
+        mainMessage: "The goal of life is to find meaning, not pleasure or power. Even in extreme suffering, humans retain the freedom to choose their attitude and find purpose.",
+        keyIdeas: [
+          "Suffering is unavoidable — meaning can always be found through it",
+          "Those with a 'why' can endure any 'how'",
+          "Freedom of attitude — no circumstance can change your inner response to the world",
+          "Logotherapy — find meaning in work, love and suffering",
+          "The last human freedom is choosing your response to any given circumstance",
+        ],
+        behaviorChange: "The ultimate freedom — choosing your attitude regardless of circumstances.",
+        actions: [],
+        quotes: [
+          "He who has a why to live for can bear almost any how.",
+          "Everything can be taken from a man but one thing: the last of the human freedoms — to choose one's attitude.",
+          "When we are no longer able to change a situation, we are challenged to change ourselves.",
+          "Life is never made unbearable by circumstances, but only by lack of meaning.",
+        ],
+        verdict: "Short, powerful and devastating. Frankl's horror in the camps makes every excuse sound small. A must read.",
+      },
+    ];
+
     function LifeMax() {
       const [goals, setGoals] = useState(() => {
         const saved = loadLS("lmos_milestones", null);
@@ -475,6 +920,24 @@
       const [outputGoal, setOutputGoal] = useState(null);
       const [outputText, setOutputText] = useState("");
       const [showAddTask, setShowAddTask] = useState(false);
+      // Goal-specific execution state
+      const [internPipeline, setInternPipeline] = useState(() => loadLS("lmos_intern", []));
+      const [bizTracker, setBizTracker] = useState(() => loadLS("lmos_biz", { mrr: 0, experiments: [], convos: 0, offers: 0 }));
+      const [ytTracker, setYtTracker] = useState(() => loadLS("lmos_yt", { videos: [], ideas: [], subs: 0 }));
+      const [readInsights, setReadInsights] = useState(() => loadLS("lmos_rins", {}));
+      const [identEvidence, setIdentEvidence] = useState(() => loadLS("lmos_iev", []));
+      const [weeklyTargets, setWeeklyTargets] = useState(() => loadLS("lmos_wt", {}));
+      const [weeklyReview, setWeeklyReview] = useState(() => loadLS("lmos_wr", {}));
+      const [newCompanyName, setNewCompanyName] = useState("");
+      const [newCompanyStatus, setNewCompanyStatus] = useState("applied");
+      const [bizExpInput, setBizExpInput] = useState("");
+      const [ytVideoInput, setYtVideoInput] = useState("");
+      const [ytIdeaInput, setYtIdeaInput] = useState("");
+      const [insightInputs, setInsightInputs] = useState({});
+      const [evidenceStmtIdx, setEvidenceStmtIdx] = useState(null);
+      const [evidenceInput, setEvidenceInput] = useState("");
+      const [completedBookExpanded, setCompletedBookExpanded] = useState(null);
+      const [historyWeekOpen, setHistoryWeekOpen] = useState(null);
       const countdown = useCountdown();
 
       // Persist goals milestones
@@ -565,6 +1028,13 @@
       useEffect(() => { saveLS("lmos_dlogs", dailyLogs); }, [dailyLogs]);
       useEffect(() => { saveLS("lmos_outputs", outputs); }, [outputs]);
       useEffect(() => { saveLS("lmos_ideas", ideas); }, [ideas]);
+      useEffect(() => { saveLS("lmos_intern", internPipeline); }, [internPipeline]);
+      useEffect(() => { saveLS("lmos_biz", bizTracker); }, [bizTracker]);
+      useEffect(() => { saveLS("lmos_yt", ytTracker); }, [ytTracker]);
+      useEffect(() => { saveLS("lmos_rins", readInsights); }, [readInsights]);
+      useEffect(() => { saveLS("lmos_iev", identEvidence); }, [identEvidence]);
+      useEffect(() => { saveLS("lmos_wt", weeklyTargets); }, [weeklyTargets]);
+      useEffect(() => { saveLS("lmos_wr", weeklyReview); }, [weeklyReview]);
       useEffect(() => {
         if (!focusTask) return;
         const t = setInterval(() => setFocusElapsed(e => e + 1), 1000);
@@ -597,6 +1067,22 @@
         if (days >= 3) return { goalId: g.id, title: g.title, color: g.color, msg: `No output in ${days}d` };
         return null;
       }).filter(Boolean);
+
+      // Goal-specific computed values
+      const getWeekKey = () => {
+        const d = new Date();
+        const startOfYear = new Date(d.getFullYear(), 0, 1);
+        const weekNum = Math.ceil(((d - startOfYear) / 86400000 + startOfYear.getDay() + 1) / 7);
+        return `${d.getFullYear()}-W${String(weekNum).padStart(2, '0')}`;
+      };
+      const weekKey = getWeekKey();
+      const internStats = {
+        applied: internPipeline.filter(c => c.status === 'applied').length,
+        outreached: internPipeline.filter(c => c.status === 'outreached').length,
+        interviews: internPipeline.filter(c => c.status === 'interview').length,
+        offers: internPipeline.filter(c => c.status === 'offer').length,
+      };
+      const ytLastUpload = ytTracker.videos.length > 0 ? Math.floor((new Date() - new Date(ytTracker.videos[ytTracker.videos.length - 1].date)) / 86400000) : null;
 
       const formatElapsed = s => `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`;
       const startFocus = (task) => { setFocusTask(task); setFocusElapsed(0); setFocusNotes(""); };
@@ -1056,6 +1542,156 @@
                               ))}
                               {(outputs[goal.id] || []).length === 0 && <div style={{ fontSize: "11px", color: "#1a1a1a", fontStyle: "italic" }}>No outputs logged yet.</div>}
                             </div>
+
+                            {/* Business Execution Panel */}
+                            {goal.id === "business" && (
+                              <div style={{ marginTop: "20px", paddingTop: "20px", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
+                                <div style={{ fontSize: "10px", color: "#2a2a2a", textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: "500", marginBottom: "14px" }}>Business Execution</div>
+                                <div style={{ marginBottom: "14px" }}>
+                                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "7px" }}>
+                                    <span style={{ fontSize: "11px", color: "#333" }}>MRR</span>
+                                    <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: "16px", fontWeight: "600", color: bizTracker.mrr >= 1000 ? "#10b981" : bizTracker.mrr >= 500 ? "#f59e0b" : "#f0f0f0" }}>${bizTracker.mrr}</span>
+                                  </div>
+                                  <div style={{ height: "2px", background: "rgba(255,255,255,0.06)", borderRadius: "1px", marginBottom: "8px" }}>
+                                    <div style={{ height: "100%", width: `${Math.min((bizTracker.mrr / 1000) * 100, 100)}%`, background: "#f59e0b", borderRadius: "1px", transition: "width 0.4s" }} />
+                                  </div>
+                                  <div style={{ display: "flex", gap: "4px" }} onClick={e => e.stopPropagation()}>
+                                    {[0, 100, 250, 500, 750, 1000].map(v => (
+                                      <button key={v} onClick={() => setBizTracker(p => ({ ...p, mrr: v }))} style={{ flex: 1, background: bizTracker.mrr === v ? "#f59e0b" : "rgba(255,255,255,0.04)", color: bizTracker.mrr === v ? "#000" : "#333", border: `1px solid ${bizTracker.mrr === v ? "#f59e0b" : "rgba(255,255,255,0.06)"}`, borderRadius: "5px", padding: "5px 0", fontSize: "9px", fontWeight: bizTracker.mrr === v ? "600" : "400", cursor: "pointer" }}>${v}</button>
+                                    ))}
+                                  </div>
+                                </div>
+                                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px", marginBottom: "14px" }} onClick={e => e.stopPropagation()}>
+                                  {[["convos", "Convos"], ["offers", "Offers"]].map(([key, label]) => (
+                                    <div key={key} style={{ background: "#111", borderRadius: "7px", padding: "12px 14px" }}>
+                                      <div style={{ fontSize: "10px", color: "#2a2a2a", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "8px" }}>{label}</div>
+                                      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                                        <button onClick={() => setBizTracker(p => ({ ...p, [key]: Math.max(0, p[key] - 1) }))} style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "4px", color: "#555", fontSize: "14px", width: "24px", height: "24px", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>-</button>
+                                        <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: "20px", fontWeight: "600", color: "#f0f0f0", flex: 1, textAlign: "center" }}>{bizTracker[key]}</span>
+                                        <button onClick={() => setBizTracker(p => ({ ...p, [key]: p[key] + 1 }))} style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "4px", color: "#555", fontSize: "14px", width: "24px", height: "24px", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>+</button>
+                                      </div>
+                                    </div>
+                                  ))}
+                                </div>
+                                <div onClick={e => e.stopPropagation()}>
+                                  <div style={{ fontSize: "10px", color: "#2a2a2a", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "8px" }}>Experiments</div>
+                                  <div style={{ display: "flex", gap: "6px", marginBottom: "8px" }}>
+                                    <input value={bizExpInput} onChange={e => setBizExpInput(e.target.value)} onKeyDown={e => { if (e.key === "Enter" && bizExpInput.trim()) { setBizTracker(p => ({ ...p, experiments: [...p.experiments, { id: Date.now(), text: bizExpInput.trim(), date: new Date().toISOString(), result: null }] })); setBizExpInput(""); }}} placeholder="What are you testing?" style={{ flex: 1, background: "#111", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "6px", padding: "8px 12px", color: "#ccc", fontSize: "12px", outline: "none", fontFamily: "inherit" }} />
+                                    <button onClick={() => { if (bizExpInput.trim()) { setBizTracker(p => ({ ...p, experiments: [...p.experiments, { id: Date.now(), text: bizExpInput.trim(), date: new Date().toISOString(), result: null }] })); setBizExpInput(""); }}} style={{ background: "#f59e0b", border: "none", borderRadius: "6px", color: "#000", fontSize: "11px", padding: "8px 14px", cursor: "pointer", fontWeight: "600" }}>+</button>
+                                  </div>
+                                  <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                                    {bizTracker.experiments.slice(-5).reverse().map((exp) => (
+                                      <div key={exp.id || exp.text} style={{ display: "flex", gap: "8px", alignItems: "center", padding: "7px 10px", background: "#111", borderRadius: "6px" }}>
+                                        <span style={{ fontSize: "12px", color: "#3a3a3a", flex: 1 }}>{exp.text}</span>
+                                        <button onClick={() => setBizTracker(p => ({ ...p, experiments: p.experiments.map(e => e.id === exp.id ? { ...e, result: e.result === 'win' ? null : 'win' } : e) }))} style={{ background: exp.result === 'win' ? "rgba(16,185,129,0.15)" : "none", border: `1px solid ${exp.result === 'win' ? "#10b98140" : "rgba(255,255,255,0.07)"}`, borderRadius: "4px", color: exp.result === 'win' ? "#10b981" : "#333", fontSize: "10px", padding: "2px 8px", cursor: "pointer" }}>✓ Win</button>
+                                        <button onClick={() => setBizTracker(p => ({ ...p, experiments: p.experiments.map(e => e.id === exp.id ? { ...e, result: e.result === 'fail' ? null : 'fail' } : e) }))} style={{ background: exp.result === 'fail' ? "rgba(239,68,68,0.1)" : "none", border: `1px solid ${exp.result === 'fail' ? "#ef444440" : "rgba(255,255,255,0.07)"}`, borderRadius: "4px", color: exp.result === 'fail' ? "#ef4444" : "#333", fontSize: "10px", padding: "2px 8px", cursor: "pointer" }}>✗ Fail</button>
+                                      </div>
+                                    ))}
+                                  </div>
+                                </div>
+                              </div>
+                            )}
+
+                            {/* Internship Pipeline Panel */}
+                            {goal.id === "internship" && (
+                              <div style={{ marginTop: "20px", paddingTop: "20px", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
+                                <div style={{ fontSize: "10px", color: "#2a2a2a", textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: "500", marginBottom: "14px" }}>Internship Pipeline</div>
+                                <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "6px", marginBottom: "14px" }}>
+                                  {[["Applied", internStats.applied, "#3b82f6"], ["Outreached", internStats.outreached, "#8b5cf6"], ["Interviews", internStats.interviews, "#f59e0b"], ["Offers", internStats.offers, "#10b981"]].map(([label, val, color]) => (
+                                    <div key={label} style={{ background: "#111", borderRadius: "6px", padding: "10px 12px", textAlign: "center" }}>
+                                      <div style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: "18px", fontWeight: "600", color }}>{val}</div>
+                                      <div style={{ fontSize: "9px", color: "#2a2a2a", textTransform: "uppercase", letterSpacing: "0.08em", marginTop: "3px" }}>{label}</div>
+                                    </div>
+                                  ))}
+                                </div>
+                                <div style={{ display: "flex", gap: "6px", marginBottom: "10px" }} onClick={e => e.stopPropagation()}>
+                                  <input value={newCompanyName} onChange={e => setNewCompanyName(e.target.value)} onKeyDown={e => { if (e.key === "Enter" && newCompanyName.trim()) { setInternPipeline(p => [...p, { id: Date.now(), name: newCompanyName.trim(), status: newCompanyStatus, addedAt: new Date().toISOString() }]); setNewCompanyName(""); }}} placeholder="Company name" style={{ flex: 1, background: "#111", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "6px", padding: "8px 12px", color: "#ccc", fontSize: "12px", outline: "none", fontFamily: "inherit" }} />
+                                  <select value={newCompanyStatus} onChange={e => setNewCompanyStatus(e.target.value)} style={{ background: "#111", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "6px", color: "#666", fontSize: "11px", padding: "8px 10px", outline: "none", fontFamily: "inherit" }}>
+                                    <option value="outreached">Outreached</option>
+                                    <option value="applied">Applied</option>
+                                    <option value="interview">Interview</option>
+                                    <option value="offer">Offer</option>
+                                    <option value="rejected">Rejected</option>
+                                  </select>
+                                  <button onClick={() => { if (newCompanyName.trim()) { setInternPipeline(p => [...p, { id: Date.now(), name: newCompanyName.trim(), status: newCompanyStatus, addedAt: new Date().toISOString() }]); setNewCompanyName(""); }}} style={{ background: "#3b82f6", border: "none", borderRadius: "6px", color: "#fff", fontSize: "11px", padding: "8px 14px", cursor: "pointer", fontWeight: "600" }}>+</button>
+                                </div>
+                                <div style={{ display: "flex", flexDirection: "column", gap: "4px", maxHeight: "200px", overflowY: "auto" }} onClick={e => e.stopPropagation()}>
+                                  {internPipeline.map(company => {
+                                    const statusColors = { outreached: "#8b5cf6", applied: "#3b82f6", interview: "#f59e0b", offer: "#10b981", rejected: "#ef4444" };
+                                    const c = statusColors[company.status] || "#555";
+                                    return (
+                                      <div key={company.id} style={{ display: "flex", alignItems: "center", gap: "8px", padding: "8px 12px", background: "#111", borderRadius: "6px" }}>
+                                        <span style={{ fontSize: "12px", color: "#aaa", flex: 1 }}>{company.name}</span>
+                                        <select value={company.status} onChange={e => setInternPipeline(p => p.map(co => co.id === company.id ? { ...co, status: e.target.value } : co))} style={{ background: "#0d0d0d", border: `1px solid ${c}40`, borderRadius: "5px", color: c, fontSize: "10px", padding: "3px 6px", outline: "none", fontFamily: "inherit" }}>
+                                          <option value="outreached">Outreached</option>
+                                          <option value="applied">Applied</option>
+                                          <option value="interview">Interview</option>
+                                          <option value="offer">Offer</option>
+                                          <option value="rejected">Rejected</option>
+                                        </select>
+                                        <button onClick={() => setInternPipeline(p => p.filter(co => co.id !== company.id))} style={{ background: "none", border: "none", color: "#1e1e1e", fontSize: "14px", cursor: "pointer", padding: "0 2px" }}>×</button>
+                                      </div>
+                                    );
+                                  })}
+                                  {internPipeline.length === 0 && <div style={{ fontSize: "11px", color: "#1a1a1a", fontStyle: "italic", padding: "8px 0" }}>No companies tracked yet.</div>}
+                                </div>
+                              </div>
+                            )}
+
+                            {/* YouTube Tracker Panel */}
+                            {goal.id === "youtube" && (
+                              <div style={{ marginTop: "20px", paddingTop: "20px", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
+                                <div style={{ fontSize: "10px", color: "#2a2a2a", textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: "500", marginBottom: "14px" }}>YouTube Tracker</div>
+                                <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "8px", marginBottom: "14px" }} onClick={e => e.stopPropagation()}>
+                                  <div style={{ background: "#111", borderRadius: "7px", padding: "12px 14px" }}>
+                                    <div style={{ fontSize: "10px", color: "#2a2a2a", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "6px" }}>Subscribers</div>
+                                    <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                                      <button onClick={() => setYtTracker(p => ({ ...p, subs: Math.max(0, p.subs - 1) }))} style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "4px", color: "#555", fontSize: "12px", width: "22px", height: "22px", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>-</button>
+                                      <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: "18px", fontWeight: "600", color: "#ef4444", flex: 1, textAlign: "center" }}>{ytTracker.subs}</span>
+                                      <button onClick={() => setYtTracker(p => ({ ...p, subs: p.subs + 1 }))} style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "4px", color: "#555", fontSize: "12px", width: "22px", height: "22px", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>+</button>
+                                    </div>
+                                  </div>
+                                  <div style={{ background: "#111", borderRadius: "7px", padding: "12px 14px", textAlign: "center" }}>
+                                    <div style={{ fontSize: "10px", color: "#2a2a2a", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "6px" }}>Videos Shipped</div>
+                                    <div style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: "18px", fontWeight: "600", color: "#ef4444" }}>{ytTracker.videos.length}<span style={{ fontSize: "10px", color: "#333" }}>/26</span></div>
+                                  </div>
+                                  <div style={{ background: "#111", borderRadius: "7px", padding: "12px 14px", textAlign: "center" }}>
+                                    <div style={{ fontSize: "10px", color: "#2a2a2a", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "6px" }}>Last Upload</div>
+                                    <div style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: "18px", fontWeight: "600", color: ytLastUpload === null ? "#333" : ytLastUpload <= 7 ? "#10b981" : ytLastUpload <= 14 ? "#f59e0b" : "#ef4444" }}>{ytLastUpload === null ? "—" : `${ytLastUpload}d`}</div>
+                                  </div>
+                                </div>
+                                <div style={{ display: "flex", gap: "6px", marginBottom: "6px" }} onClick={e => e.stopPropagation()}>
+                                  <input value={ytVideoInput} onChange={e => setYtVideoInput(e.target.value)} onKeyDown={e => { if (e.key === "Enter" && ytVideoInput.trim()) { setYtTracker(p => ({ ...p, videos: [...p.videos, { id: Date.now(), title: ytVideoInput.trim(), date: new Date().toISOString() }] })); setYtVideoInput(""); }}} placeholder="Video title..." style={{ flex: 1, background: "#111", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "6px", padding: "8px 12px", color: "#ccc", fontSize: "12px", outline: "none", fontFamily: "inherit" }} />
+                                  <button onClick={() => { if (ytVideoInput.trim()) { setYtTracker(p => ({ ...p, videos: [...p.videos, { id: Date.now(), title: ytVideoInput.trim(), date: new Date().toISOString() }] })); setYtVideoInput(""); }}} style={{ background: "#ef4444", border: "none", borderRadius: "6px", color: "#fff", fontSize: "11px", padding: "8px 12px", cursor: "pointer", fontWeight: "600", whiteSpace: "nowrap" }}>+ Video</button>
+                                </div>
+                                <div style={{ display: "flex", gap: "6px", marginBottom: "10px" }} onClick={e => e.stopPropagation()}>
+                                  <input value={ytIdeaInput} onChange={e => setYtIdeaInput(e.target.value)} onKeyDown={e => { if (e.key === "Enter" && ytIdeaInput.trim()) { setYtTracker(p => ({ ...p, ideas: [...p.ideas, { id: Date.now(), text: ytIdeaInput.trim(), date: new Date().toISOString() }] })); setYtIdeaInput(""); }}} placeholder="Video idea..." style={{ flex: 1, background: "#111", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "6px", padding: "8px 12px", color: "#ccc", fontSize: "12px", outline: "none", fontFamily: "inherit" }} />
+                                  <button onClick={() => { if (ytIdeaInput.trim()) { setYtTracker(p => ({ ...p, ideas: [...p.ideas, { id: Date.now(), text: ytIdeaInput.trim(), date: new Date().toISOString() }] })); setYtIdeaInput(""); }}} style={{ background: "rgba(239,68,68,0.15)", border: "1px solid rgba(239,68,68,0.25)", borderRadius: "6px", color: "#ef4444", fontSize: "11px", padding: "8px 12px", cursor: "pointer", fontWeight: "600", whiteSpace: "nowrap" }}>+ Idea</button>
+                                </div>
+                                {ytTracker.videos.length > 0 && (
+                                  <div style={{ marginBottom: "8px" }}>
+                                    <div style={{ fontSize: "10px", color: "#1a1a1a", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "6px" }}>Recent Uploads</div>
+                                    {ytTracker.videos.slice(-3).reverse().map((v, i) => (
+                                      <div key={v.id || i} style={{ fontSize: "12px", color: "#2a2a2a", padding: "5px 0", borderBottom: "1px solid rgba(255,255,255,0.03)" }}>
+                                        <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: "9px", color: "#1a1a1a", marginRight: "8px" }}>{new Date(v.date).toLocaleDateString("en-GB", { day: "numeric", month: "short" })}</span>
+                                        {v.title}
+                                      </div>
+                                    ))}
+                                  </div>
+                                )}
+                                {ytTracker.ideas.length > 0 && (
+                                  <div onClick={e => e.stopPropagation()}>
+                                    <div style={{ fontSize: "10px", color: "#1a1a1a", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "6px" }}>Idea Backlog · {ytTracker.ideas.length}</div>
+                                    {ytTracker.ideas.slice(-5).reverse().map((idea) => (
+                                      <div key={idea.id} style={{ display: "flex", alignItems: "center", gap: "8px", padding: "5px 0" }}>
+                                        <span style={{ fontSize: "12px", color: "#2a2a2a", flex: 1 }}>{idea.text}</span>
+                                        <button onClick={() => setYtTracker(p => ({ ...p, ideas: p.ideas.filter(x => x.id !== idea.id) }))} style={{ background: "none", border: "none", color: "#1e1e1e", fontSize: "12px", cursor: "pointer" }}>×</button>
+                                      </div>
+                                    ))}
+                                  </div>
+                                )}
+                              </div>
+                            )}
                           </div>
                         )}
                       </div>
@@ -1120,6 +1756,24 @@
                           <div style={{ fontSize: "11px", color: "#3a3a3a", lineHeight: 1.55 }}>{book.goal}</div>
                         </div>
                         {pct === 100 && <div style={{ marginTop: "10px", fontSize: "11px", color: "#10b981", fontWeight: "500" }}>Complete · +300 XP</div>}
+                        <div style={{ marginTop: "12px", paddingTop: "12px", borderTop: "1px solid rgba(255,255,255,0.05)" }} onClick={e => e.stopPropagation()}>
+                          <div style={{ fontSize: "10px", color: "#2a2a2a", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "8px" }}>Insights to Implement</div>
+                          <div style={{ display: "flex", gap: "6px", marginBottom: "8px" }}>
+                            <input value={insightInputs[book.title] || ""} onChange={e => setInsightInputs(p => ({ ...p, [book.title]: e.target.value }))} onKeyDown={e => { if (e.key === "Enter" && (insightInputs[book.title] || "").trim()) { setReadInsights(p => ({ ...p, [book.title]: [...(p[book.title] || []), { id: Date.now(), text: insightInputs[book.title].trim(), implemented: false, date: new Date().toISOString() }] })); setInsightInputs(p => ({ ...p, [book.title]: "" })); }}} placeholder="Capture insight..." style={{ flex: 1, background: "#0d0d0d", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "5px", padding: "7px 11px", color: "#ccc", fontSize: "11px", outline: "none", fontFamily: "inherit" }} />
+                            <button onClick={() => { if ((insightInputs[book.title] || "").trim()) { setReadInsights(p => ({ ...p, [book.title]: [...(p[book.title] || []), { id: Date.now(), text: insightInputs[book.title].trim(), implemented: false, date: new Date().toISOString() }] })); setInsightInputs(p => ({ ...p, [book.title]: "" })); }}} style={{ background: `${book.color}20`, border: `1px solid ${book.color}30`, borderRadius: "5px", color: book.color, fontSize: "13px", padding: "7px 12px", cursor: "pointer" }}>+</button>
+                          </div>
+                          <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                            {(readInsights[book.title] || []).map((ins) => (
+                              <div key={ins.id} style={{ display: "flex", alignItems: "flex-start", gap: "8px", padding: "6px 0", borderBottom: "1px solid rgba(255,255,255,0.03)" }}>
+                                <div onClick={() => setReadInsights(p => ({ ...p, [book.title]: p[book.title].map(x => x.id === ins.id ? { ...x, implemented: !x.implemented } : x) }))} style={{ width: "13px", height: "13px", flexShrink: 0, border: `1.5px solid ${ins.implemented ? book.color : "rgba(255,255,255,0.1)"}`, borderRadius: "3px", background: ins.implemented ? book.color : "transparent", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", marginTop: "2px" }}>
+                                  {ins.implemented && <span style={{ fontSize: "7px", color: "#000", fontWeight: "800" }}>✓</span>}
+                                </div>
+                                <span style={{ fontSize: "11px", color: ins.implemented ? "#2a2a2a" : "#aaa", flex: 1, textDecoration: ins.implemented ? "line-through" : "none", lineHeight: 1.5 }}>{ins.text}</span>
+                              </div>
+                            ))}
+                            {(readInsights[book.title] || []).length === 0 && <div style={{ fontSize: "11px", color: "#1a1a1a", fontStyle: "italic" }}>No insights captured yet.</div>}
+                          </div>
+                        </div>
                       </div>
                     );
                   })}
@@ -1137,6 +1791,96 @@
                   {["Never finish a book without writing 1 action you'll take this week because of it.", "Read with a purpose — what problem are you trying to solve right now?", "Implementation gap is where all value is lost. Read less, implement more."].map((r, i) => (
                     <div key={i} style={{ fontSize: "12px", color: "#2a2a2a", marginBottom: "9px", lineHeight: 1.65, paddingLeft: "14px", borderLeft: "1px solid rgba(255,255,255,0.06)" }}>{r}</div>
                   ))}
+                </div>
+
+                {/* Completed Books Library */}
+                <div style={{ marginTop: "52px" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "32px" }}>
+                    <div>
+                      <div style={{ fontSize: "20px", fontWeight: "600", color: "#f0f0f0", letterSpacing: "-0.03em", marginBottom: "5px" }}>Completed Books</div>
+                      <div style={{ fontSize: "12px", color: "#333" }}>Every book read — insights distilled, actions captured, mental models compounding</div>
+                    </div>
+                    <div style={{ textAlign: "right", flexShrink: 0 }}>
+                      <div style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: "26px", fontWeight: "600", color: "#f97316", lineHeight: 1 }}>{COMPLETED_BOOKS.length}</div>
+                      <div style={{ fontSize: "10px", color: "#2a2a2a", marginTop: "4px", textTransform: "uppercase", letterSpacing: "0.08em" }}>of 36 target</div>
+                      <div style={{ marginTop: "6px", height: "2px", background: "rgba(255,255,255,0.06)", borderRadius: "1px", width: "80px" }}>
+                        <div style={{ height: "100%", width: `${Math.min((COMPLETED_BOOKS.length / 36) * 100, 100)}%`, background: "linear-gradient(90deg, #f97316, #f59e0b)", borderRadius: "1px" }} />
+                      </div>
+                    </div>
+                  </div>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                    {COMPLETED_BOOKS.map(book => {
+                      const isExpanded = completedBookExpanded === book.id;
+                      return (
+                        <div key={book.id} onClick={() => setCompletedBookExpanded(isExpanded ? null : book.id)} style={{ background: "#0d0d0d", border: `1px solid ${isExpanded ? book.color + "30" : "rgba(255,255,255,0.05)"}`, borderLeft: `3px solid ${book.color}55`, borderRadius: "10px", padding: "18px 22px", cursor: "pointer", transition: "border-color 0.15s" }}>
+                          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+                            <div style={{ flex: 1, minWidth: 0, marginRight: "16px" }}>
+                              <div style={{ fontSize: "14px", fontWeight: "600", color: "#f0f0f0", marginBottom: "3px", letterSpacing: "-0.02em" }}>{book.title}</div>
+                              <div style={{ fontSize: "11px", color: "#3a3a3a" }}>{book.author}</div>
+                            </div>
+                            <div style={{ display: "flex", alignItems: "center", gap: "10px", flexShrink: 0 }}>
+                              <div style={{ display: "flex", gap: "2px" }}>
+                                {[...Array(10)].map((_, i) => <span key={i} style={{ fontSize: "6px", color: i < book.rating ? book.color : "#1e1e1e" }}>●</span>)}
+                              </div>
+                              <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: "10px", color: book.color }}>{book.rating}/10</span>
+                            </div>
+                          </div>
+                          {!isExpanded && <div style={{ fontSize: "12px", color: "#2a2a2a", marginTop: "10px", lineHeight: 1.65 }}>{book.mainMessage}</div>}
+                          {isExpanded && (
+                            <div style={{ marginTop: "22px", paddingTop: "22px", borderTop: `1px solid ${book.color}18` }} onClick={e => e.stopPropagation()}>
+                              {/* Core thesis */}
+                              <div style={{ marginBottom: "22px" }}>
+                                <div style={{ fontSize: "10px", color: book.color, textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: "600", marginBottom: "8px" }}>Core Thesis</div>
+                                <p style={{ fontSize: "13px", color: "#777", lineHeight: 1.75, fontStyle: "italic" }}>{book.mainMessage}</p>
+                              </div>
+                              {/* Key ideas */}
+                              <div style={{ marginBottom: "22px" }}>
+                                <div style={{ fontSize: "10px", color: book.color, textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: "600", marginBottom: "12px" }}>Key Ideas</div>
+                                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "6px" }}>
+                                  {book.keyIdeas.map((idea, i) => (
+                                    <div key={i} style={{ display: "flex", gap: "10px", alignItems: "flex-start" }}>
+                                      <div style={{ width: "4px", height: "4px", borderRadius: "50%", background: book.color, marginTop: "8px", flexShrink: 0, opacity: 0.6 }} />
+                                      <span style={{ fontSize: "12px", color: "#444", lineHeight: 1.65 }}>{idea}</span>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                              {/* Actions */}
+                              {book.actions.length > 0 && (
+                                <div style={{ marginBottom: "22px" }}>
+                                  <div style={{ fontSize: "10px", color: book.color, textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: "600", marginBottom: "10px" }}>Actions Applied</div>
+                                  <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                                    {book.actions.map((action, i) => (
+                                      <div key={i} style={{ display: "flex", gap: "10px", alignItems: "flex-start" }}>
+                                        <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: "9px", color: "#10b981", paddingTop: "4px", flexShrink: 0 }}>→</span>
+                                        <span style={{ fontSize: "12px", color: "#3a3a3a", lineHeight: 1.65 }}>{action}</span>
+                                      </div>
+                                    ))}
+                                  </div>
+                                </div>
+                              )}
+                              {/* Quotes */}
+                              <div style={{ marginBottom: "22px" }}>
+                                <div style={{ fontSize: "10px", color: book.color, textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: "600", marginBottom: "12px" }}>Best Quotes</div>
+                                <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                                  {book.quotes.map((q, i) => (
+                                    <div key={i} style={{ borderLeft: `2px solid ${book.color}35`, paddingLeft: "16px" }}>
+                                      <p style={{ fontSize: "13px", color: "#666", fontStyle: "italic", lineHeight: 1.7 }}>"{q}"</p>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                              {/* Verdict */}
+                              <div style={{ padding: "14px 18px", background: `${book.color}08`, border: `1px solid ${book.color}20`, borderRadius: "8px" }}>
+                                <div style={{ fontSize: "10px", color: book.color, textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: "600", marginBottom: "6px" }}>Verdict</div>
+                                <p style={{ fontSize: "12px", color: "#555", lineHeight: 1.7 }}>{book.verdict}</p>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
             )}
@@ -1170,12 +1914,68 @@
                     </div>
                   ))}
                 </div>
+                <div style={{ background: "#0d0d0d", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "12px", padding: "28px", marginTop: "20px" }}>
+                  <div style={{ fontSize: "11px", color: "#6366f1", textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: "600", marginBottom: "6px" }}>Identity Evidence Log</div>
+                  <div style={{ fontSize: "12px", color: "#2a2a2a", marginBottom: "18px", lineHeight: 1.65 }}>Document proof you are becoming who you said you'd become. Every entry compounds.</div>
+                  <div style={{ display: "flex", gap: "6px", marginBottom: "8px" }}>
+                    <select value={evidenceStmtIdx === null ? "" : evidenceStmtIdx} onChange={e => setEvidenceStmtIdx(e.target.value === "" ? null : parseInt(e.target.value))} style={{ flex: 1, background: "#111", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "6px", color: "#666", fontSize: "11px", padding: "8px 10px", outline: "none", fontFamily: "inherit" }}>
+                      <option value="">Select identity statement...</option>
+                      {IDENTITY.map((s, i) => <option key={i} value={i}>{s.length > 52 ? s.substring(0, 52) + "..." : s}</option>)}
+                    </select>
+                  </div>
+                  <div style={{ display: "flex", gap: "6px", marginBottom: "18px" }}>
+                    <input value={evidenceInput} onChange={e => setEvidenceInput(e.target.value)} onKeyDown={e => { if (e.key === "Enter" && evidenceInput.trim() && evidenceStmtIdx !== null) { setIdentEvidence(p => [...p, { id: Date.now(), text: evidenceInput.trim(), stmtIdx: evidenceStmtIdx, date: new Date().toISOString() }]); setEvidenceInput(""); }}} placeholder="Evidence of who you're becoming..." style={{ flex: 1, background: "#111", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "6px", padding: "8px 12px", color: "#ccc", fontSize: "12px", outline: "none", fontFamily: "inherit" }} />
+                    <button onClick={() => { if (evidenceInput.trim() && evidenceStmtIdx !== null) { setIdentEvidence(p => [...p, { id: Date.now(), text: evidenceInput.trim(), stmtIdx: evidenceStmtIdx, date: new Date().toISOString() }]); setEvidenceInput(""); }}} style={{ background: "rgba(99,102,241,0.15)", border: "1px solid rgba(99,102,241,0.3)", borderRadius: "6px", color: "#6366f1", fontSize: "11px", padding: "8px 18px", cursor: "pointer", fontWeight: "600" }}>Log</button>
+                  </div>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "8px", maxHeight: "300px", overflowY: "auto" }}>
+                    {identEvidence.slice().reverse().map((ev) => (
+                      <div key={ev.id} style={{ padding: "12px 14px", background: "#111", border: "1px solid rgba(99,102,241,0.08)", borderLeft: "2px solid rgba(99,102,241,0.35)", borderRadius: "7px" }}>
+                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "6px" }}>
+                          <span style={{ fontSize: "10px", color: "#6366f1", opacity: 0.65, fontStyle: "italic", flex: 1, lineHeight: 1.4 }}>{IDENTITY[ev.stmtIdx]}</span>
+                          <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: "9px", color: "#1a1a1a", flexShrink: 0, marginLeft: "10px" }}>{new Date(ev.date).toLocaleDateString("en-GB", { day: "numeric", month: "short" })}</span>
+                        </div>
+                        <div style={{ fontSize: "13px", color: "#bbb", lineHeight: 1.55 }}>{ev.text}</div>
+                      </div>
+                    ))}
+                    {identEvidence.length === 0 && <div style={{ fontSize: "12px", color: "#1a1a1a", fontStyle: "italic" }}>No evidence logged yet. Start proving who you are.</div>}
+                  </div>
+                </div>
               </div>
             )}
 
             {activeTab === "weekly" && (
               <div style={{ animation: "fadeUp 0.22s ease" }}>
-                <div style={{ fontSize: "11px", color: "#2a2a2a", textTransform: "uppercase", letterSpacing: "0.12em", fontWeight: "500", marginBottom: "28px" }}>Weekly Operating System</div>
+                <div style={{ fontSize: "11px", color: "#2a2a2a", textTransform: "uppercase", letterSpacing: "0.12em", fontWeight: "500", marginBottom: "20px" }}>Weekly Operating System</div>
+                <div style={{ background: "#0d0d0d", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "12px", padding: "22px", marginBottom: "28px" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
+                    <div style={{ fontSize: "10px", color: "#2a2a2a", textTransform: "uppercase", letterSpacing: "0.12em", fontWeight: "500" }}>This Week's Targets</div>
+                    <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: "10px", color: "#1a1a1a" }}>{weekKey}</span>
+                  </div>
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "8px", marginBottom: "20px" }}>
+                    {goals.map(g => (
+                      <div key={g.id} style={{ background: "#111", borderRadius: "7px", padding: "12px 14px" }}>
+                        <div style={{ fontSize: "10px", color: g.color, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "7px" }}>{g.title}</div>
+                        <input value={(weeklyTargets[weekKey] || {})[g.id] || ""} onChange={e => setWeeklyTargets(p => ({ ...p, [weekKey]: { ...(p[weekKey] || {}), [g.id]: e.target.value } }))} placeholder={`#1 goal for ${g.id} this week?`} style={{ width: "100%", background: "transparent", border: "none", borderBottom: "1px solid rgba(255,255,255,0.06)", color: "#ccc", fontSize: "12px", padding: "3px 0 6px", outline: "none", fontFamily: "inherit" }} />
+                      </div>
+                    ))}
+                  </div>
+                  <div style={{ paddingTop: "16px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+                    <div style={{ fontSize: "10px", color: "#2a2a2a", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "12px" }}>Weekly Review</div>
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
+                      {[
+                        { key: "needle", prompt: "What moved the needle most?" },
+                        { key: "wasted", prompt: "What was wasted time?" },
+                        { key: "doubleDown", prompt: "What should you double down on?" },
+                        { key: "stop", prompt: "What should you stop completely?" },
+                      ].map(({ key, prompt }) => (
+                        <div key={key} style={{ background: "#111", borderRadius: "7px", padding: "11px 13px" }}>
+                          <div style={{ fontSize: "10px", color: "#333", marginBottom: "6px" }}>{prompt}</div>
+                          <textarea value={(weeklyReview[weekKey] || {})[key] || ""} onChange={e => setWeeklyReview(p => ({ ...p, [weekKey]: { ...(p[weekKey] || {}), [key]: e.target.value } }))} style={{ width: "100%", background: "transparent", border: "none", color: "#888", fontSize: "12px", resize: "none", height: "54px", outline: "none", fontFamily: "inherit", lineHeight: 1.5 }} />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(186px, 1fr))", gap: "10px", marginBottom: "36px" }}>
                   {[
                     { day: "Mon", color: "#f59e0b", tasks: ["Deep work: Build (2hr min)", "5 cold outreach messages", "Portfolio project sprint"] },
@@ -1208,6 +2008,71 @@
                     </div>
                   ))}
                 </div>
+
+                {/* Past Weeks Archive */}
+                {(() => {
+                  const allWeeks = [...new Set([...Object.keys(weeklyTargets), ...Object.keys(weeklyReview)])].filter(k => k !== weekKey).sort().reverse();
+                  if (allWeeks.length === 0) return null;
+                  return (
+                    <div style={{ marginTop: "28px" }}>
+                      <div style={{ fontSize: "10px", color: "#2a2a2a", textTransform: "uppercase", letterSpacing: "0.12em", fontWeight: "500", marginBottom: "12px" }}>Past Weeks · {allWeeks.length} archived</div>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                        {allWeeks.map(wk => {
+                          const targets = weeklyTargets[wk] || {};
+                          const review = weeklyReview[wk] || {};
+                          const isOpen = historyWeekOpen === wk;
+                          const hasContent = Object.values(targets).some(Boolean) || Object.values(review).some(Boolean);
+                          if (!hasContent) return null;
+                          return (
+                            <div key={wk} style={{ background: "#0d0d0d", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "10px", overflow: "hidden" }}>
+                              <div onClick={() => setHistoryWeekOpen(isOpen ? null : wk)} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "14px 20px", cursor: "pointer" }}>
+                                <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: "12px", color: "#444" }}>{wk}</span>
+                                <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                                  {Object.values(review).filter(Boolean).length > 0 && <span style={{ fontSize: "10px", color: "#10b981" }}>✓ reviewed</span>}
+                                  <span style={{ fontSize: "11px", color: "#2a2a2a" }}>{isOpen ? "↑" : "↓"}</span>
+                                </div>
+                              </div>
+                              {isOpen && (
+                                <div style={{ padding: "0 20px 20px", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
+                                  {Object.values(targets).some(Boolean) && (
+                                    <div style={{ marginTop: "16px", marginBottom: "16px" }}>
+                                      <div style={{ fontSize: "10px", color: "#2a2a2a", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "10px" }}>Targets</div>
+                                      <div style={{ display: "flex", flexDirection: "column", gap: "7px" }}>
+                                        {Object.entries(targets).map(([goalId, target]) => {
+                                          if (!target) return null;
+                                          const g = goals.find(g => g.id === goalId);
+                                          return (
+                                            <div key={goalId} style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
+                                              <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: "9px", color: g ? g.color : "#444", flexShrink: 0, paddingTop: "3px", textTransform: "uppercase", letterSpacing: "0.06em" }}>{goalId}</span>
+                                              <span style={{ fontSize: "12px", color: "#444", lineHeight: 1.55 }}>{target}</span>
+                                            </div>
+                                          );
+                                        })}
+                                      </div>
+                                    </div>
+                                  )}
+                                  {Object.values(review).some(Boolean) && (
+                                    <div style={{ paddingTop: "14px", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
+                                      <div style={{ fontSize: "10px", color: "#2a2a2a", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "12px" }}>Review</div>
+                                      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px" }}>
+                                        {[["needle", "Moved the needle"], ["wasted", "Wasted time"], ["doubleDown", "Double down on"], ["stop", "Stop completely"]].map(([key, label]) => review[key] ? (
+                                          <div key={key}>
+                                            <div style={{ fontSize: "10px", color: "#1e1e1e", marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.08em" }}>{label}</div>
+                                            <div style={{ fontSize: "12px", color: "#3a3a3a", lineHeight: 1.6 }}>{review[key]}</div>
+                                          </div>
+                                        ) : null)}
+                                      </div>
+                                    </div>
+                                  )}
+                                </div>
+                              )}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  );
+                })()}
               </div>
             )}
 
