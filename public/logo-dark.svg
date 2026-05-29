@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 72" fill="none" aria-hidden="true">
+  <!-- F�s wordmark  cream on dark backgrounds -->
+  <text x="0" y="50" font-family="var(--font-dm-sans, 'DM Sans', system-ui, sans-serif)" font-size="52" font-weight="900" fill="#FAF5F0" letter-spacing="-0.045em">F�s</text>
+  <text x="4" y="66" font-family="var(--font-dm-sans, 'DM Sans', system-ui, sans-serif)" font-size="11" font-weight="700" fill="#FAF5F0" fill-opacity="0.55" letter-spacing="0.38em">AI</text>
+</svg>
