@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FIS — From Legacy API to Prototype in Days. Not Months.</title>
+  <meta
+    name="description"
+    content="Fixed-price working prototypes for B2B procurement and operations teams. You send the legacy API. We return functional outputs, reports, and cost breakdowns."
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ================================================================
+       HEADER
+       MARKETING PURPOSE: Keep navigation minimal so the buyer's eye
+       goes straight to outputs and pricing, not brand decoration.
+  ================================================================= -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <!-- ZERO LOGOS RULE: placeholder only, no invented mark -->
+      <div class="logo-placeholder" aria-label="Logo placeholder">[LOGO PLACEHOLDER - 120x40px]</div>
+
+      <nav class="main-nav" aria-label="Primary">
+        <a href="#outputs">Outputs</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#sandbox">Sandbox</a>
+        <a href="#estimator" class="nav-cta">Get an estimate</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================================================================
+         HERO
+         MARKETING PURPOSE: State the outcome (prototype in days) and
+         remove the two biggest B2B fears: retained hours + vague scope.
+    ================================================================= -->
+    <section class="hero" id="top">
+      <div class="container">
+        <h1 class="hero-title">
+          From Legacy API to Prototype<br />
+          in Days. Not Months.
+        </h1>
+        <p class="hero-sub">
+          We build working outputs for B2B procurement. No retained hours.
+          No vague milestones.
+        </p>
+        <div class="hero-actions">
+          <a href="#outputs" class="btn btn-accent">See the outputs</a>
+          <a href="#pricing" class="btn btn-ghost">View fixed prices</a>
+        </div>
+
+        <!-- Concrete promise: what arrives in your inbox -->
+        <p class="hero-proof">
+          You send us your legacy API. We return:
+          <strong>3 functional prototypes</strong>,
+          <strong>1 performance report</strong>,
+          <strong>1 cost breakdown</strong>.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         INTERACTIVE FEATURE #2 — PRICE-TO-PROTOTYPE ESTIMATOR
+         MARKETING PURPOSE: Lets a buyer self-qualify the cost in seconds.
+         Reduces fear of a hidden discovery-phase invoice before any call.
+    ================================================================= -->
+    <section class="estimator" id="estimator">
+      <div class="container">
+        <h2 class="section-title">Estimate your prototype bundle</h2>
+        <p class="section-lead">Two inputs. Instant range. No form, no call required.</p>
+
+        <div class="estimator-grid">
+          <div class="estimator-controls">
+            <!-- Step 1 -->
+            <div class="control-block">
+              <label for="systems">
+                How many legacy systems do you need to connect?
+              </label>
+              <div class="slider-row">
+                <input
+                  type="range"
+                  id="systems"
+                  min="1"
+                  max="10"
+                  step="1"
+                  value="3"
+                />
+                <output id="systemsValue" class="slider-value">3</output>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="control-block">
+              <span class="control-label">Do you need a migration sample?</span>
+              <div class="toggle" role="group" aria-label="Migration sample">
+                <button type="button" class="toggle-btn is-active" data-migration="no">No</button>
+                <button type="button" class="toggle-btn" data-migration="yes">Yes</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live output: reduces risk by previewing the number -->
+          <div class="estimator-output">
+            <span class="estimator-output-label">Estimated prototype bundle</span>
+            <span class="estimator-output-value" id="estimateValue">€4,200 – €6,800</span>
+            <span class="estimator-output-note" id="estimateNote">
+              Based on 3 systems, no migration sample. Fixed quote confirmed on the intro call.
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         OUTPUTS GRID (replaces "Services")
+         MARKETING PURPOSE: Sells tangible deliverables, not "solutions".
+         Each card lists exactly what lands in the buyer's hands.
+         Contains INTERACTIVE FEATURE #1 (Output Explorer toggle).
+    ================================================================= -->
+    <section class="outputs" id="outputs">
+      <div class="container">
+        <h2 class="section-title">What you actually receive</h2>
+        <p class="section-lead">
+          Three engagements. Each one returns files you can open, run, and
+          forward to your team.
+        </p>
+
+        <div class="output-grid">
+          <!-- CARD 1 -->
+          <article class="output-card">
+            <h3 class="output-card-title">Integration Audit</h3>
+
+            <!-- FEATURE #1 toggle: shows tangible output before purchase -->
+            <div class="explorer-toggle" role="group" aria-label="View toggle">
+              <button type="button" class="explorer-btn is-active" data-view="get">What you get</button>
+              <button type="button" class="explorer-btn" data-view="preview">Example output</button>
+            </div>
+
+            <!-- PROTOTYPE RESULT SLOT -->
+            <div class="result-slot">
+              <div class="result-view result-get is-visible">
+                <ol class="deliverables">
+                  <li>Mapped schema</li>
+                  <li>Latency report</li>
+                  <li>Security flags</li>
+                </ol>
+              </div>
+              <div class="result-view result-preview">
+                <pre class="code-preview">GET /v1/orders   → 142ms  OK
+GET /v1/invoices → 318ms  ⚠ slow
+POST /v1/sync    → 401    ✗ auth
+3 endpoints mapped · 1 breaking change</pre>
+                <span class="slot-tag">[PROTOTYPE RESULT SLOT — CHART/CODE SNIPPET]</span>
+              </div>
+            </div>
+
+            <div class="output-card-foot">
+              <span class="price">From €3,500</span>
+              <a href="#pricing" class="btn btn-accent btn-sm">Request prototype</a>
+            </div>
+          </article>
+
+          <!-- CARD 2 -->
+          <article class="output-card">
+            <h3 class="output-card-title">System Bridge</h3>
+
+            <div class="explorer-toggle" role="group" aria-label="View toggle">
+              <button type="button" class="explorer-btn is-active" data-view="get">What you get</button>
+              <button type="button" class="explorer-btn" data-view="preview">Example output</button>
+            </div>
+
+            <div class="result-slot">
+              <div class="result-view result-get is-visible">
+                <ol class="deliverables">
+                  <li>3 working prototypes</li>
+                  <li>Integration map</li>
+                  <li>2 performance samples</li>
+                </ol>
+              </div>
+              <div class="result-view result-preview">
+                <pre class="code-preview">bridge.connect(legacy, target)
+  ↳ throughput  1,240 req/min
+  ↳ error rate  0.4%
+  ↳ p95 latency 211ms
+sample_1.json · sample_2.json</pre>
+                <span class="slot-tag">[PROTOTYPE RESULT SLOT — CHART/CODE SNIPPET]</span>
+              </div>
+            </div>
+
+            <div class="output-card-foot">
+              <span class="price">From €9,000</span>
+              <a href="#pricing" class="btn btn-accent btn-sm">Request prototype</a>
+            </div>
+          </article>
+
+          <!-- CARD 3 -->
+          <article class="output-card">
+            <h3 class="output-card-title">Legacy Escape</h3>
+
+            <div class="explorer-toggle" role="group" aria-label="View toggle">
+              <button type="button" class="explorer-btn is-active" data-view="get">What you get</button>
+              <button type="button" class="explorer-btn" data-view="preview">Example output</button>
+            </div>
+
+            <div class="result-slot">
+              <div class="result-view result-get is-visible">
+                <ol class="deliverables">
+                  <li>6 prototypes</li>
+                  <li>Data migration sample</li>
+                  <li>ROI calculator</li>
+                </ol>
+              </div>
+              <div class="result-view result-preview">
+                <pre class="code-preview">migrate --rows 50,000 --dry-run
+  ↳ 49,981 mapped · 19 flagged
+  ↳ est. cutover window  4h
+ROI: €182k/yr saved vs. in-house</pre>
+                <span class="slot-tag">[PROTOTYPE RESULT SLOT — CHART/CODE SNIPPET]</span>
+              </div>
+            </div>
+
+            <div class="output-card-foot">
+              <span class="price">From €24,000</span>
+              <a href="#pricing" class="btn btn-accent btn-sm">Request prototype</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         CASE STUDY SLOTS
+         MARKETING PURPOSE: Social proof via outcome containers, not
+         adjective-heavy testimonials. Logo + metric only.
+    ================================================================= -->
+    <section class="cases">
+      <div class="container">
+        <h2 class="section-title">Recent outputs</h2>
+        <div class="case-grid">
+          <div class="case-slot">[CASE STUDY PREVIEW — LOGO + METRIC]</div>
+          <div class="case-slot">[CASE STUDY PREVIEW — LOGO + METRIC]</div>
+          <div class="case-slot">[CASE STUDY PREVIEW — LOGO + METRIC]</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         PACKAGE PRICING
+         MARKETING PURPOSE: Fixed prices kill the "bait-and-switch" fear.
+         Contains INTERACTIVE FEATURE #3 (hover reveal of deliverables).
+    ================================================================= -->
+    <section class="pricing" id="pricing">
+      <div class="container">
+        <h2 class="section-title">Fixed-price prototypes.</h2>
+        <p class="section-lead">No discovery phase bait-and-switch.</p>
+
+        <div class="package-grid">
+          <!-- PACKAGE 1 -->
+          <article class="package-card" tabindex="0">
+            <span class="package-name">Single API Probe</span>
+            <span class="package-price">€3,500</span>
+            <ul class="package-includes">
+              <li>1 prototype</li>
+              <li>1 report</li>
+              <li>1 call</li>
+            </ul>
+
+            <!-- EXAMPLE OUTPUT SLOT -->
+            <div class="package-slot">[EXAMPLE OUTPUT SLOT — SCREENSHOT OF COMPLETED PROTOTYPE]</div>
+
+            <!-- FEATURE #3: hidden detail revealed on hover/focus -->
+            <div class="package-reveal">
+              <span class="reveal-title">What's inside the prototype</span>
+              <ol>
+                <li>Endpoint map + auth check</li>
+                <li>Latency &amp; error baseline</li>
+                <li>Go / no-go recommendation</li>
+              </ol>
+            </div>
+
+            <a href="#estimator" class="btn btn-ghost btn-block">Request this package</a>
+          </article>
+
+          <!-- PACKAGE 2 (featured) -->
+          <article class="package-card is-featured" tabindex="0">
+            <span class="package-flag">Most chosen</span>
+            <span class="package-name">System Bridge</span>
+            <span class="package-price">€9,000</span>
+            <ul class="package-includes">
+              <li>3 prototypes</li>
+              <li>Integration map</li>
+              <li>2 performance samples</li>
+            </ul>
+
+            <div class="package-slot">[EXAMPLE OUTPUT SLOT — SCREENSHOT OF COMPLETED PROTOTYPE]</div>
+
+            <div class="package-reveal">
+              <span class="reveal-title">What's inside the prototype</span>
+              <ol>
+                <li>Two-way data bridge build</li>
+                <li>Throughput + p95 latency samples</li>
+                <li>Failure-mode report</li>
+              </ol>
+            </div>
+
+            <a href="#estimator" class="btn btn-accent btn-block">Request this package</a>
+          </article>
+
+          <!-- PACKAGE 3 -->
+          <article class="package-card" tabindex="0">
+            <span class="package-name">Legacy Escape</span>
+            <span class="package-price">€24,000</span>
+            <ul class="package-includes">
+              <li>6 prototypes</li>
+              <li>Data migration sample</li>
+              <li>ROI calculator</li>
+            </ul>
+
+            <div class="package-slot">[EXAMPLE OUTPUT SLOT — SCREENSHOT OF COMPLETED PROTOTYPE]</div>
+
+            <div class="package-reveal">
+              <span class="reveal-title">What's inside the prototype</span>
+              <ol>
+                <li>Migration dry-run on real rows</li>
+                <li>Cutover window estimate</li>
+                <li>Annual saving vs. in-house build</li>
+              </ol>
+            </div>
+
+            <a href="#estimator" class="btn btn-ghost btn-block">Request this package</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         INTERACTIVE FEATURE #4 — LIVE PROTOTYPE SANDBOX
+         MARKETING PURPOSE: Proves the work is real and instant. The buyer
+         clicks a command and sees the kind of output they will receive.
+    ================================================================= -->
+    <section class="sandbox" id="sandbox">
+      <div class="container">
+        <h2 class="section-title sandbox-title">Try a prototype command</h2>
+        <p class="section-lead sandbox-lead">
+          Click a command. See the kind of output we hand over.
+        </p>
+
+        <div class="sandbox-controls">
+          <button type="button" class="btn btn-terminal" data-cmd="audit">RUN AUDIT</button>
+          <button type="button" class="btn btn-terminal" data-cmd="migrate">SIMULATE MIGRATION</button>
+          <button type="button" class="btn btn-terminal" data-cmd="schema">GENERATE SCHEMA</button>
+        </div>
+
+        <pre class="terminal" id="terminal">&gt; Ready. Click a command.</pre>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================================================================
+       FOOTER
+       MARKETING PURPOSE: No newsletter friction. One useful action:
+       request the data sheet (the document procurement actually needs).
+  ================================================================= -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="logo-placeholder">[LOGO PLACEHOLDER - 120x40px]</div>
+      <a href="#estimator" class="footer-link">Request a prototype data sheet</a>
+      <span class="footer-legal">[Placeholder for legal]</span>
+    </div>
+  </footer>
+
+  <!-- ================================================================
+       SCRIPTS — vanilla JS only, no libraries, no external calls.
+  ================================================================= -->
+  <script>
+    (function () {
+      "use strict";
+
+      /* ---------------------------------------------------------------
+         FEATURE #1 — Output Explorer toggle
+         Swaps each card's slot between "What you get" and "Example output".
+      ---------------------------------------------------------------- */
+      document.querySelectorAll(".output-card").forEach(function (card) {
+        var buttons = card.querySelectorAll(".explorer-btn");
+        var views = card.querySelectorAll(".result-view");
+
+        buttons.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            var view = btn.getAttribute("data-view");
+            buttons.forEach(function (b) { b.classList.remove("is-active"); });
+            btn.classList.add("is-active");
+            views.forEach(function (v) {
+              var match = v.classList.contains("result-" + view);
+              v.classList.toggle("is-visible", match);
+            });
+          });
+        });
+      });
+
+      /* ---------------------------------------------------------------
+         FEATURE #2 — Price-to-Prototype Estimator
+         base €3,000 + (systems × €400) + (migration ? €1,200 : €0)
+         Displayed as a range (±20%) so the buyer sees a realistic band.
+      ---------------------------------------------------------------- */
+      var systems = document.getElementById("systems");
+      var systemsValue = document.getElementById("systemsValue");
+      var estimateValue = document.getElementById("estimateValue");
+      var estimateNote = document.getElementById("estimateNote");
+      var migrationButtons = document.querySelectorAll("[data-migration]");
+      var migration = false;
+
+      function euro(n) {
+        return "€" + Math.round(n).toLocaleString("en-IE");
+      }
+
+      function updateEstimate() {
+        var count = parseInt(systems.value, 10);
+        var base = 3000 + count * 400 + (migration ? 1200 : 0);
+        var low = base * 0.9;
+        var high = base * 1.2;
+        systemsValue.textContent = count;
+        estimateValue.textContent = euro(low) + " – " + euro(high);
+        estimateNote.textContent =
+          "Based on " + count + " system" + (count === 1 ? "" : "s") +
+          ", " + (migration ? "with" : "no") +
+          " migration sample. Fixed quote confirmed on the intro call.";
+      }
+
+      systems.addEventListener("input", updateEstimate);
+
+      migrationButtons.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          migration = btn.getAttribute("data-migration") === "yes";
+          migrationButtons.forEach(function (b) { b.classList.remove("is-active"); });
+          btn.classList.add("is-active");
+          updateEstimate();
+        });
+      });
+
+      updateEstimate();
+
+      /* ---------------------------------------------------------------
+         FEATURE #4 — Live Prototype Sandbox
+         Each command prints a different, realistic terminal log.
+      ---------------------------------------------------------------- */
+      var terminal = document.getElementById("terminal");
+      var logs = {
+        audit: [
+          "> run audit --target legacy-api",
+          "> scanning endpoints...",
+          "> 3 endpoints mapped.",
+          "> 1 breaking change found.",
+          "> 2 security flags raised.",
+          "> done in 1.4s"
+        ],
+        migrate: [
+          "> simulate migration --rows 50000",
+          "> validating source schema...",
+          "> 49,981 rows mapped.",
+          "> 19 rows flagged for review.",
+          "> estimated cutover window: 4h",
+          "> dry-run complete. no data written."
+        ],
+        schema: [
+          "> generate schema --from sample.json",
+          "> inferring types...",
+          "> 14 fields detected.",
+          "> 3 nullable, 2 enums, 1 foreign key.",
+          "> schema.sql written.",
+          "> done in 0.6s"
+        ]
+      };
+
+      document.querySelectorAll("[data-cmd]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var cmd = btn.getAttribute("data-cmd");
+          terminal.textContent = logs[cmd].join("\n");
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

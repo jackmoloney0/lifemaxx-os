@@ -1,0 +1,639 @@
+/* =================================================================
+   FIS.ie — vanilla stylesheet
+   Palette:  #000 section backgrounds · #FFF text · #E0E0E0 borders
+   Accent:   #FF4D00 (buttons only, used sparingly)
+   Fonts:    system default (no custom fonts)
+   ================================================================= */
+
+:root {
+  --bg: #000000;
+  --bg-alt: #0a0a0a;
+  --text: #ffffff;
+  --muted: #9a9a9a;
+  --border: #e0e0e0;
+  --border-dim: #2a2a2a;
+  --accent: #ff4d00;
+  --maxw: 1120px;
+  --pad: 2rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro", "Inter",
+    "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--pad);
+}
+
+/* ----------------------------------------------------------------
+   Shared typography
+----------------------------------------------------------------- */
+.section-title {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.section-lead {
+  margin-top: 0.75rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 44ch;
+}
+
+section {
+  padding: clamp(3.5rem, 8vw, 6.5rem) 0;
+  border-top: 1px solid var(--border-dim);
+}
+
+/* ----------------------------------------------------------------
+   Buttons
+----------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  padding: 0.85rem 1.5rem;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.btn-sm {
+  padding: 0.6rem 1.1rem;
+  font-size: 0.85rem;
+}
+
+.btn-block {
+  width: 100%;
+  margin-top: 1.25rem;
+}
+
+/* Accent button — the only place orange appears */
+.btn-accent {
+  background: var(--accent);
+  color: #fff;
+}
+.btn-accent:hover {
+  opacity: 0.85;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+.btn-ghost:hover {
+  border-color: var(--accent);
+}
+
+.btn-terminal {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border-dim);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: 0.05em;
+}
+.btn-terminal:hover {
+  border-color: var(--accent);
+}
+
+/* ----------------------------------------------------------------
+   Logo placeholders (ZERO LOGOS rule)
+----------------------------------------------------------------- */
+.logo-placeholder {
+  width: 120px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed var(--border-dim);
+  color: var(--muted);
+  font-size: 0.6rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* ----------------------------------------------------------------
+   Header
+----------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border-dim);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+.main-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+.main-nav a:hover {
+  color: var(--text);
+}
+.main-nav .nav-cta {
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 0.5rem 1rem;
+  border-radius: 2px;
+}
+.main-nav .nav-cta:hover {
+  border-color: var(--accent);
+}
+
+/* ----------------------------------------------------------------
+   Hero
+----------------------------------------------------------------- */
+.hero {
+  border-top: none;
+  padding-top: clamp(4rem, 9vw, 7rem);
+}
+.hero-title {
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+}
+.hero-sub {
+  margin-top: 1.5rem;
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  color: var(--muted);
+  max-width: 46ch;
+}
+.hero-actions {
+  margin-top: 2.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.hero-proof {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-dim);
+  font-size: 1.05rem;
+  color: var(--muted);
+  max-width: 60ch;
+}
+.hero-proof strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ----------------------------------------------------------------
+   Estimator (Feature #2)
+----------------------------------------------------------------- */
+.estimator-grid {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+.estimator-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border: 1px solid var(--border-dim);
+  padding: 1.75rem;
+  border-radius: 2px;
+}
+.control-block label,
+.control-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.9rem;
+}
+.slider-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+input[type="range"] {
+  flex: 1;
+  accent-color: var(--accent);
+  height: 4px;
+  cursor: pointer;
+}
+.slider-value {
+  min-width: 2.5rem;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  font-size: 1.25rem;
+  font-weight: 700;
+  border: 1px solid var(--border-dim);
+  padding: 0.25rem 0.5rem;
+  border-radius: 2px;
+}
+.toggle {
+  display: inline-flex;
+  border: 1px solid var(--border-dim);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.toggle-btn {
+  font: inherit;
+  background: transparent;
+  color: var(--muted);
+  border: none;
+  padding: 0.6rem 1.4rem;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.toggle-btn.is-active {
+  background: var(--text);
+  color: #000;
+  font-weight: 600;
+}
+.estimator-output {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid var(--border);
+  padding: 1.75rem;
+  border-radius: 2px;
+}
+.estimator-output-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+.estimator-output-value {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.estimator-output-note {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ----------------------------------------------------------------
+   Outputs grid (+ Feature #1)
+----------------------------------------------------------------- */
+.output-grid {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.output-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-dim);
+  padding: 1.75rem;
+  border-radius: 2px;
+}
+.output-card-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.explorer-toggle {
+  display: inline-flex;
+  margin-top: 1.25rem;
+  border: 1px solid var(--border-dim);
+  border-radius: 2px;
+  overflow: hidden;
+  width: fit-content;
+}
+.explorer-btn {
+  font: inherit;
+  font-size: 0.8rem;
+  background: transparent;
+  color: var(--muted);
+  border: none;
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.explorer-btn.is-active {
+  background: var(--text);
+  color: #000;
+  font-weight: 600;
+}
+
+/* PROTOTYPE RESULT SLOT — dashed container, min 200px */
+.result-slot {
+  position: relative;
+  margin-top: 1.25rem;
+  min-height: 200px;
+  border: 1px dashed var(--border-dim);
+  border-radius: 2px;
+  padding: 1.25rem;
+}
+.result-view {
+  display: none;
+}
+.result-view.is-visible {
+  display: block;
+}
+.deliverables {
+  list-style: none;
+  counter-reset: d;
+}
+.deliverables li {
+  counter-increment: d;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border-dim);
+  font-size: 0.95rem;
+}
+.deliverables li:last-child {
+  border-bottom: none;
+}
+.deliverables li::before {
+  content: counter(d) ".";
+  color: var(--accent);
+  font-weight: 700;
+  margin-right: 0.6rem;
+}
+.code-preview {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: #d8d8d8;
+  white-space: pre-wrap;
+}
+.slot-tag {
+  display: block;
+  margin-top: 0.75rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.05em;
+  color: var(--border-dim);
+}
+.output-card-foot {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.price {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+/* ----------------------------------------------------------------
+   Case study slots
+----------------------------------------------------------------- */
+.case-grid {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.case-slot {
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed var(--border-dim);
+  border-radius: 2px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* ----------------------------------------------------------------
+   Pricing packages (+ Feature #3 hover reveal)
+----------------------------------------------------------------- */
+.package-grid {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+.package-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-dim);
+  padding: 1.75rem;
+  border-radius: 2px;
+  outline: none;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.package-card.is-featured {
+  border-color: var(--border);
+}
+.package-card:hover,
+.package-card:focus-visible {
+  transform: scale(1.02);
+  border-color: var(--accent);
+}
+.package-flag {
+  position: absolute;
+  top: -0.7rem;
+  left: 1.75rem;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border-radius: 2px;
+}
+.package-name {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+.package-price {
+  margin-top: 0.5rem;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.package-includes {
+  list-style: none;
+  margin-top: 1.25rem;
+}
+.package-includes li {
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--border-dim);
+  font-size: 0.95rem;
+}
+.package-includes li:last-child {
+  border-bottom: none;
+}
+
+/* EXAMPLE OUTPUT SLOT */
+.package-slot {
+  margin-top: 1.25rem;
+  min-height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed var(--border-dim);
+  border-radius: 2px;
+  color: var(--muted);
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+  padding: 0.75rem;
+}
+
+/* Feature #3: hidden reveal via max-height + opacity (no display:none) */
+.package-reveal {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease, opacity 0.2s ease;
+}
+.package-card:hover .package-reveal,
+.package-card:focus-visible .package-reveal,
+.package-card:focus-within .package-reveal {
+  max-height: 240px;
+  opacity: 1;
+  margin-top: 1.25rem;
+}
+.reveal-title {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+}
+.package-reveal ol {
+  padding-left: 1.1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.package-reveal li {
+  padding: 0.2rem 0;
+}
+
+/* ----------------------------------------------------------------
+   Sandbox (Feature #4)
+----------------------------------------------------------------- */
+.sandbox {
+  background: var(--bg-alt);
+}
+.sandbox-controls {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.terminal {
+  margin-top: 1.5rem;
+  background: #000;
+  border: 1px solid var(--border-dim);
+  border-radius: 2px;
+  padding: 1.5rem;
+  min-height: 200px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #00ff88;
+  white-space: pre-wrap;
+}
+
+/* ----------------------------------------------------------------
+   Footer
+----------------------------------------------------------------- */
+.site-footer {
+  border-top: 1px solid var(--border-dim);
+  padding: 2.5rem 0;
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.footer-link {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 2px;
+  font-size: 0.95rem;
+}
+.footer-link:hover {
+  opacity: 0.8;
+}
+.footer-legal {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+/* ----------------------------------------------------------------
+   Responsive — stack grids, reduce padding on mobile
+----------------------------------------------------------------- */
+@media (max-width: 860px) {
+  :root {
+    --pad: 1.25rem;
+  }
+  .estimator-grid,
+  .output-grid,
+  .case-grid,
+  .package-grid {
+    grid-template-columns: 1fr;
+  }
+  .main-nav {
+    gap: 1rem;
+  }
+  .main-nav a:not(.nav-cta) {
+    display: none;
+  }
+  .package-card:hover {
+    transform: none;
+  }
+  /* On touch/mobile, always show the reveal so detail isn't hover-locked */
+  .package-reveal {
+    max-height: 240px;
+    opacity: 1;
+    margin-top: 1.25rem;
+  }
+}
